@@ -1,0 +1,290 @@
+[
+    {
+        "id": "1",
+        "contents": {
+            "project_type": "4-х комнатная квартира",
+            "project_name": "ЖК Меркато",
+            "project_values": [
+                "105",
+                "7",
+                "Комфорт"
+            ],
+            "project_address": "г. Сочи, ул.Яна Фабрициуса, 2/23м",
+            "project_descript": "Проект выполнялся удаленно. Заказчики не проживают в Сочи. Семейная пара приобрела квартиру в Сочи, и сразу передали ключи в компанию Сочиремонт. Задача стояла сделать солнечную квартиру, без капитальных перегородок и без видимых комнат.",
+            "project_imgTop": "./media/img/project1/top.jpg",
+            "project_schema": "./media/img/project1/schema.jpg",
+            "project_include": "Был выбран необычный цвет стен, и Заказчик сразу сказал, что на полу будет пробка. Очень необычное решение.",
+            "project_view": "https://vk.com/clip-211130018_456239135?c=1",
+            "project_slides": [
+                {
+                    "images": [
+                        [
+                            "./media/img/project1/slider/slide1-1.jpg",
+                            "./media/img/project1/slider/slide1-1-mob.jpg"
+                        ],
+                        [
+                            "./media/img/project1/slider/slide1-2.jpg",
+                            "./media/img/project1/slider/slide1-2.jpg"
+                        ]
+                    ],
+                    "text": "Еще одна изюминка данной квартиры, в душевой было установлено ведро банное для обливания. Квартира получилась очень светлая, теплая и уютная, а также в ней много света и пространства."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project1/slider/slide2-1.jpg",
+                            "./media/img/project1/slider/slide2-1.jpg"
+                        ],
+                        [
+                            "./media/img/project1/slider/slide2-2.jpg",
+                            "./media/img/project1/slider/slide2-2.jpg"
+                        ]
+                    ],
+                    "text": "Еще одна изюминка данной квартиры, в душевой было установлено ведро банное для обливания. Квартира получилась очень светлая, теплая и уютная, а также в ней много света и пространства."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project1/slider/slide3-1.jpg",
+                            "./media/img/project1/slider/slide3-1.jpg"
+                        ],
+                        [
+                            "./media/img/project1/slider/slide3-2.jpg",
+                            "./media/img/project1/slider/slide3-2.jpg"
+                        ]
+                    ],
+                    "text": "Еще одна изюминка данной квартиры, в душевой было установлено ведро банное для обливания. Квартира получилась очень светлая, теплая и уютная, а также в ней много света и пространства."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project1/slider/slide4-1.jpg",
+                            "./media/img/project1/slider/slide4-1.jpg"
+                        ],
+                        [
+                            "./media/img/project1/slider/slide4-2.jpg",
+                            "./media/img/project1/slider/slide4-2.jpg"
+                        ]
+                    ],
+                    "text": "Еще одна изюминка данной квартиры, в душевой было установлено ведро банное для обливания. Квартира получилась очень светлая, теплая и уютная, а также в ней много света и пространства."
+                }
+            ]
+        }
+    },
+    {
+        "id": "2",
+        "contents": {
+            "project_type": "частный дом",
+            "project_name": "с. нижняя шиловка",
+            "project_values": [
+                "80",
+                "7",
+                "Премиум"
+            ],
+            "project_address": "г.Сочи, с. Нижняя Шиловка",
+            "project_descript": "Частный дом для семейной пары с ребенком. Дом находится на возвышенности, из окон открывается прекрасный вид на город.",
+            "project_imgTop": "./media/img/project2/top-img.jpg",
+            "project_schema": "./media/img/project2/schema.jpg",
+            "project_include": "В доме, все было придумано до мелочей, на первом этаже располагаютсяпостирочная и гостевой санузел.<br><br> Во всем доме установлены двери Invisible, которые также отделаны декоративной штукатуркой под отделку стен.<br><br> В санузлах реализованы несколько видов различного керамогранита.<br><br> Лестничный марш стены отделаны панелями Orac и декоративной штукатуркой с графическими элементами. На лестнице был реализован интересный вариант подсветки.",
+            "project_view": "https://vk.com/clip-211130018_456239136?c=1",
+            "project_slides": [
+                {
+                    "images": [
+                        [
+                            "./media/img/project2/slider/slide1-1.jpg",
+                            "./media/img/project1/slider/slide1-1.jpg"
+                        ],
+                        [
+                            "./media/img/project2/slider/slide1-2.jpg",
+                            "./media/img/project2/slider/slide1-2.jpg"
+                        ]
+                    ],
+                    "text": "Квартира получилась в современном утонченном стиле, с различным применением подсветки. Керамогранит подчеркивает роскошность интерьера."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project2/slider/slide2-1.jpg",
+                            "./media/img/project2/slider/slide2-1.jpg"
+                        ],
+                        [
+                            "./media/img/project2/slider/slide2-2.jpg",
+                            "./media/img/project2/slider/slide2-2.jpg"
+                        ]
+                    ],
+                    "text": "Квартира получилась в современном утонченном стиле, с различным применением подсветки. Керамогранит подчеркивает роскошность интерьера."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project2/slider/slide3-1.jpg",
+                            "./media/img/project2/slider/slide3-1.jpg"
+                        ],
+                        [
+                            "./media/img/project2/slider/slide3-2.jpg",
+                            "./media/img/project2/slider/slide3-2.jpg"
+                        ]
+                    ],
+                    "text": "Квартира получилась в современном утонченном стиле, с различным применением подсветки. Керамогранит подчеркивает роскошность интерьера."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project2/slider/slide4-1.jpg",
+                            "./media/img/project2/slider/slide4-1.jpg"
+                        ],
+                        [
+                            "./media/img/project2/slider/slide4-2.jpg",
+                            "./media/img/project2/slider/slide4-2.jpg"
+                        ]
+                    ],
+                    "text": "Квартира получилась в современном утонченном стиле, с различным применением подсветки. Керамогранит подчеркивает роскошность интерьера."
+                }
+            ]
+        }
+    },
+    {
+        "id": "3",
+        "contents": {
+            "project_type": "4-х комнатная квартира",
+            "project_name": "хоста",
+            "project_values": [
+                "105",
+                "7",
+                "Комфорт"
+            ],
+            "project_address": "г. Хоста, ул. 50 лет СССР, 21",
+            "project_descript": "Квартира расположена в прекрасной районе Хоста, ровная прямая улица, с домами в которых по 12 квартир. Да, была непростая задача, так как это старый фонд, предстояло решить много задач: демонтаж перегородок, укрепление деревянного пола, укрепление стен самого дома.",
+            "project_imgTop": "./media/img/project3/top-img.jpg",
+            "project_schema": "./media/img/project3/schema.jpg",
+            "project_include": "Было изменено расположение перегородок для комнат. Можно посмотреть некоторые этапы и сравнение с тем что было в ролике: <a href='https: //vk.com/wall-211130018_80'>https://vk.com/wall-211130018_80</a>.<br><br>Была особенность прокладки электрического кабеля, в связи с тем, что поли межэтажные перегородки деревянные, была применена система выравнивания пола от 5 мм до 2 см, и вся электрика прокладывалась по потолку.<br><br>На протяжении всего ремонта применяется система упаковки уже готовых элементов.",
+            "project_view": "https://vk.com/clip-211130018_456239109?c=1",
+            "project_slides": [
+                {
+                    "images": [
+                        [
+                            "./media/img/project3/slider/slide1-1.jpg",
+                            "./media/img/project3/slider/slide1-1.jpg"
+                        ],
+                        [
+                            "./media/img/project3/slider/slide1-2.jpg",
+                            "./media/img/project3/slider/slide1-2.jpg"
+                        ]
+                    ],
+                    "text": "Были применены яркие цвета в санузле, что добавило настроения в данной квартире. Стены частично покрашены, частично наклеены обои. "
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project3/slider/slide2-1.jpg",
+                            "./media/img/project3/slider/slide2-1.jpg"
+                        ],
+                        [
+                            "./media/img/project3/slider/slide2-2.jpg",
+                            "./media/img/project3/slider/slide2-2.jpg"
+                        ]
+                    ],
+                    "text": "Были применены яркие цвета в санузле, что добавило настроения в данной квартире. Стены частично покрашены, частично наклеены обои."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project3/slider/slide3-1.jpg",
+                            "./media/img/project3/slider/slide3-1.jpg"
+                        ],
+                        [
+                            "./media/img/project3/slider/slide3-2.jpg",
+                            "./media/img/project3/slider/slide3-2.jpg"
+                        ]
+                    ],
+                    "text": "Были применены яркие цвета в санузле, что добавило настроения в данной квартире. Стены частично покрашены, частично наклеены обои."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project3/slider/slide4-1.jpg",
+                            "./media/img/project3/slider/slide4-1.jpg"
+                        ],
+                        [
+                            "./media/img/project3/slider/slide4-2.jpg",
+                            "./media/img/project3/slider/slide4-2.jpg"
+                        ]
+                    ],
+                    "text": "Были применены яркие цвета в санузле, что добавило настроения в данной квартире. Стены частично покрашены, частично наклеены обои."
+                }
+            ]
+        }
+    },
+    {
+        "id": "4",
+        "contents": {
+            "project_type": "3-х комнатная квартира",
+            "project_name": "ЖК Фрукты",
+            "project_values": [
+                "95",
+                "12",
+                "Премиум"
+            ],
+            "project_address": "г. Сочи, Акаций, 34",
+            "project_descript": "Проект выполнялся удаленно. Заказчики не проживают в Сочи. Проект выполнялся для семейной пары с ребенком. В квартире 3 комнаты: гостиная, спальная комната и детская, 3 балкона, гостевой и личный санузел.",
+            "project_imgTop": "./media/img/project4/top-img.jpg",
+            "project_schema": "./media/img/project4/schema.jpg",
+            "project_include": "Потолок: ГКЛ, крашенный белый, с встроенными треками<br><br>На стенах реализовано несколько видов отделки: декоративная штукатурка, молдинги, фрески и панели Orac.<br><br>В санузлах реализованы коллекторный шкаф с люком из плитки.",
+            "project_view": "https://disk.yandex.ru/i/z-gOrWb6Lx2H7w",
+            "project_slides": [
+                {
+                    "images": [
+                        [
+                            "./media/img/project4/slider/slide1-1.jpg",
+                            "./media/img/project4/slider/slide1-1.jpg"
+                        ],
+                        [
+                            "./media/img/project4/slider/slide1-2.jpg",
+                            "./media/img/project4/slider/slide1-2.jpg"
+                        ]
+                    ],
+                    "text": "Объемная работа была проделана и по подбору мебели для создания уюта и завершенности."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project4/slider/slide2-1.jpg",
+                            "./media/img/project4/slider/slide2-1.jpg"
+                        ],
+                        [
+                            "./media/img/project4/slider/slide2-2.jpg",
+                            "./media/img/project4/slider/slide2-2.jpg"
+                        ]
+                    ],
+                    "text": "Объемная работа была проделана и по подбору мебели для создания уюта и завершенности."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project4/slider/slide3-1.jpg",
+                            "./media/img/project4/slider/slide3-1.jpg"
+                        ],
+                        [
+                            "./media/img/project4/slider/slide3-2.jpg",
+                            "./media/img/project4/slider/slide3-2.jpg"
+                        ]
+                    ],
+                    "text": "Объемная работа была проделана и по подбору мебели для создания уюта и завершенности."
+                },
+                {
+                    "images": [
+                        [
+                            "./media/img/project4/slider/slide4-1.jpg",
+                            "./media/img/project4/slider/slide4-1.jpg"
+                        ],
+                        [
+                            "./media/img/project4/slider/slide4-2.jpg",
+                            "./media/img/project4/slider/slide4-2.jpg"
+                        ]
+                    ],
+                    "text": "Объемная работа была проделана и по подбору мебели для создания уюта и завершенности."
+                }
+            ]
+        }
+    }
+]
