@@ -1,0 +1,59 @@
+.section-price+.process-work {
+    margin-top: 90px;
+}
+
+.process-work {
+    .w-big {
+        margin-left: auto;
+    }
+
+    h2:before {
+        width: 23%;
+        top: -10px;
+    }
+}
+
+.process-items {
+    @include flex-column;
+    margin-top: 70px;
+
+}
+
+$color-process: #645F5B;
+
+.process-item {
+    width: 100%;
+    padding: 25px 0;
+    align-items: center;
+    border-bottom: 1px solid rgba($color-process, .7);
+    color: $color-process;
+
+
+    &:first-child {
+        border-top: 1px solid rgba($color-process, .7);
+    }
+
+    .number {
+        flex: 1;
+        min-width: 0;
+        font-family: $font-title;
+        font-size: 1.8rem;
+    }
+
+    .w-big {
+        @include flex-column;
+        gap: 10px;
+    }
+
+    .title {
+        font-weight: $font-medium;
+        font-size: 25px;
+        text-transform: uppercase;
+        letter-spacing: .02em;
+    }
+
+    .text {
+        font-size: .8rem;
+        letter-spacing: .01em;
+    }
+}

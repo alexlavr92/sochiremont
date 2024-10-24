@@ -1,0 +1,128 @@
+.about-company {
+    padding-top: 21vw;
+}
+
+.about-top {
+
+    &+.about-bottom {
+        margin-top: 100px;
+    }
+
+    .w-big {
+        margin-left: auto;
+        @include flex-column;
+        gap: 50px;
+    }
+
+    h2 {
+        text-transform: uppercase;
+
+        &:before {
+            top: -10px;
+            width: 14%;
+        }
+    }
+
+    .title {
+        position: relative;
+        z-index: 0;
+
+        .img-wrapper {
+            position: absolute;
+            top: 50%;
+            margin-top: -7%;
+            transform: translateY(-50%);
+            right: -66px;
+            z-index: -1;
+
+            @media screen {
+                @media (max-width: 1600px) {
+                    right: 2vw;
+                }
+            }
+
+            span {
+                display: block;
+                width: 360px;
+                height: 360px;
+                border-radius: 50%;
+                background-color: #F2EFE5;
+            }
+        }
+    }
+
+    .list {
+        row-gap: 20px;
+        column-gap: 50px;
+        position: relative;
+        width: 55%;
+        font-size: .7rem;
+        letter-spacing: .01em;
+
+        @media screen {
+            @media (max-width: 1600px) {
+                width: 60%;
+            }
+        }
+
+        li {
+            flex: 1;
+        }
+
+        li:first-child {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+}
+
+.about-bottom {
+    position: relative;
+
+    .title {
+        font-size: 1rem;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: .01rem;
+
+        >span {
+            position: relative;
+            display: inline;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                border-radius: 2px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-text-second;
+            }
+        }
+
+
+    }
+
+    .counter-items {
+        margin-top: 180px;
+    }
+
+    .img-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 64.5%;
+        height: 100%;
+
+
+        .img {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            @include bg-style;
+        }
+    }
+}

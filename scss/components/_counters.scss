@@ -1,0 +1,23 @@
+.counter-items {
+    @include flex-column;
+    gap: 60px;
+    width: 70%;
+}
+
+.counter-item {
+    @include flex-column;
+
+    .counter-number {
+        font-size: 3rem;
+        font-family: $font-title;
+        letter-spacing: 0.02em;
+        color: $color-text-second;
+        line-height: 4.2rem;
+    }
+
+    .counter-text {
+        font-size: .7rem;
+        letter-spacing: .02em;
+        line-height: 1.1rem;
+    }
+}

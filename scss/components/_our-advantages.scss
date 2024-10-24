@@ -1,0 +1,85 @@
+.our-advantages {
+    h2 {
+        padding-bottom: 70px;
+    }
+
+    h2:before {
+        top: -10px;
+        width: 10%;
+    }
+}
+
+.our-advantages--inner {
+    position: relative;
+
+    .slider-navigation {
+        border-bottom: 1px solid rgba($color-text-main, .8);
+    }
+
+    .slider-pagination {
+        color: rgba($color-text-main, .6);
+    }
+
+    .slider-arrow {
+        background: $color-text-main;
+
+        &.--prev:after {
+            border-color: $color-text-main;
+        }
+
+        &.--next:after {
+            border-color: $color-text-main;
+        }
+    }
+
+    .swiper-slide {
+        gap: 4vw;
+
+        >* {
+            flex: 1;
+        }
+
+        .img-block {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+    }
+
+    .descript-items {
+        @include flex-column;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .descript-item {
+        @include flex-column;
+        gap: 10px;
+
+        .title {
+            font-size: 1rem;
+            letter-spacing: .02em;
+            position: relative;
+            padding-left: 15px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $color-text-second;
+                left: 0;
+                top: 11px;
+            }
+        }
+
+        .text {
+            font-size: .8rem;
+            line-height: 1rem;
+            padding-left: 15px;
+            letter-spacing: .02em;
+            color: rgba($color-text-main, .6);
+        }
+    }
+}

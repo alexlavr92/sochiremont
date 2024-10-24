@@ -1,0 +1,81 @@
+.inline-request {
+    margin: 90px 0;
+    padding: 120px 0 185px;
+
+    .w-big {
+        margin-left: auto;
+
+        h2 {
+            color: $color-text-white;
+
+            &:before {
+                top: -10px;
+                width: 25%;
+            }
+        }
+    }
+}
+
+.inline-form-wrapper {
+    margin-top: 100px;
+
+    .request-success-wrapper {
+        color: $color-text-white;
+        font-family: $font-title;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        letter-spacing: .02em;
+        line-height: 150%;
+        display: none;
+    }
+}
+
+.inline-form {
+    gap: 60px;
+    align-items: end;
+
+    @media screen {
+        @media (max-width: 1500px) {
+            gap: 40px;
+        }
+
+        @media (max-width: 1399px) {
+            gap: 30px;
+        }
+    }
+
+    .default-input-wrapper {
+        width: 20vw;
+        max-width: 360px;
+
+        @media screen {
+            @media (min-width: 2000px) {
+                max-width: none;
+                max-width: 500px;
+            }
+
+            @media (max-width: 1500px) {
+                width: 22vw;
+            }
+        }
+    }
+
+    label {
+        color: $color-text-white;
+    }
+
+    .input-default {
+        background: #80766F;
+        @include placeholder-color(#C2C2C1);
+        color: $color-text-white;
+        transition: $transition;
+
+        &:hover,
+        &:focus,
+        &.active {
+            border: 2px solid rgba(#000000, .2);
+        }
+    }
+
+
+}

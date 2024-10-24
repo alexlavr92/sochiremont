@@ -1,0 +1,16 @@
+.brifing {
+
+    h2 {
+        max-width: 52%;
+        padding-bottom: 70px;
+
+        &::before {
+            top: -10px;
+            width: 20%;
+        }
+    }
+}
+
+.brifing-wrapper {
+    width: 100%;
+}
