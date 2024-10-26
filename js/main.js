@@ -665,9 +665,9 @@ jQuery(document).ready(function ($) {
                     watchOverflow: true,
                     watchSlidesVisibility: true,
                     touchReleaseOnEdges: true,
-                    observer: true,
-                    observeParents: true,
-                    observeSlideChildren: true,
+                    // observer: true,
+                    // observeParents: true,
+                    // observeSlideChildren: true,
                     loop: true,
                     grabCursor: true,
                     /* effect: 'fade',
@@ -675,12 +675,12 @@ jQuery(document).ready(function ($) {
                         crossFade: true
                     }, */
                     on: {
-                        // init: function () {
-                        //     const $this = this
-                        //     setTimeout(function () {
-                        //         $this.update()
-                        //     }, 10);
-                        // },
+                        init: function () {
+                            const $this = this
+                            setTimeout(function () {
+                                $this.update()
+                            }, 200);
+                        },
                         // resize: function () {
                         //     const $this = this
                         //     setTimeout(function () {
