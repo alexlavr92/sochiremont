@@ -668,7 +668,7 @@ jQuery(document).ready(function ($) {
                     // observer: true,
                     // observeParents: true,
                     // observeSlideChildren: true,
-                    // loop: true,
+                    loop: true,
                     grabCursor: true,
                     /* effect: 'fade',
                     fadeEffect: {
