@@ -649,63 +649,72 @@ jQuery(document).ready(function ($) {
             sliderWrapper: $('.project-slider-wrapper')
         },
         init: function (options) {
+            // console.log(this.swiper)
             var options = $.extend(this.defaultsOptions, options)
             const sliderContainer = options.sliderWrapper.find('.project-slider-container'),
                 PrevArrow = options.sliderWrapper.find('.slider-arrow.--prev'),
                 NextArrow = options.sliderWrapper.find('.slider-arrow.--next'),
                 sliderPagination = options.sliderWrapper.find('.slider-pagination')
             // let swiper
-            // if (!sliderContainer.hasClass('swiper-container-initialized')) {
-            this.swiper = new Swiper(sliderContainer, {
-                slidesPerView: 1,
-                spaceBetween: 10,
-                speed: 1000,
-                lazy: true,
-                watchOverflow: true,
-                watchSlidesVisibility: true,
-                touchReleaseOnEdges: true,
-                observer: true,
-                // observeParents: true,
-                observeSlideChildren: true,
-                // loop: true,
-                grabCursor: true,
-                /* effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                }, */
-                // on: {
-                //     observerUpdate: function () {
-
-                //         swiper.update()
-                //     }
-                // },
-                pagination: {
-                    el: sliderPagination,
-                    type: "custom",
-                    renderCustom: function (swiper, current, total) {
-                        // return current + ' of ' + total;
-                        current = current < 10
-                            ? '0' + current
-                            : current
-                        total = total < 10
-                            ? '0' + total
-                            : total
-                        return '<span class="current">' + current + '</span>' +
-                            ' <span class="divider">/</span> ' +
-                            '<span class="all">' + total + '</span>';
-                    }
-                },
-                navigation: {
-                    nextEl: NextArrow,
-                    prevEl: PrevArrow,
-                },
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                },
-            })
-            // }
+            if (!sliderContainer.hasClass('swiper-container-initialized')) {
+                this.swiper = new Swiper(sliderContainer, {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    speed: 1000,
+                    lazy: true,
+                    watchOverflow: true,
+                    watchSlidesVisibility: true,
+                    touchReleaseOnEdges: true,
+                    observer: true,
+                    // observeParents: true,
+                    observeSlideChildren: true,
+                    // loop: true,
+                    grabCursor: true,
+                    /* effect: 'fade',
+                    fadeEffect: {
+                        crossFade: true
+                    }, */
+                    on: {
+                        // init: function () {
+                        //     const $this = this
+                        //     setTimeout(function () {
+                        //         $this.update()
+                        //     }, 10);
+                        // },
+                        // resize: function () {
+                        //     const $this = this
+                        //     setTimeout(function () {
+                        //         $this.update()
+                        //     }, 10);
+                        // }
+                    },
+                    pagination: {
+                        el: sliderPagination,
+                        type: "custom",
+                        renderCustom: function (swiper, current, total) {
+                            // return current + ' of ' + total;
+                            current = current < 10
+                                ? '0' + current
+                                : current
+                            total = total < 10
+                                ? '0' + total
+                                : total
+                            return '<span class="current">' + current + '</span>' +
+                                ' <span class="divider">/</span> ' +
+                                '<span class="all">' + total + '</span>';
+                        }
+                    },
+                    navigation: {
+                        nextEl: NextArrow,
+                        prevEl: PrevArrow,
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                        pauseOnMouseEnter: true,
+                    },
+                })
+            }
         }
     }
 
@@ -739,7 +748,7 @@ jQuery(document).ready(function ($) {
             var options = $.extend(this.defaultsOption, options)
             let click_close = true;
 
-            // console.log(options)
+            // console.log('init modal')
             modalElem.modal({
                 fadeDuration: 150,
                 closeExisting: false, // новое 11.07.2022
@@ -756,6 +765,7 @@ jQuery(document).ready(function ($) {
         },
         writeProjectContent: function () {
             // console.log(this.currentContentModal)
+
             const currentContentModal = this.currentContentModal
             let options = this.defaultsOption
             // console.log(options)
@@ -825,16 +835,19 @@ jQuery(document).ready(function ($) {
             Gallery.init({
                 GalleryWrapper: ProjectSwiperWrapper
             })
+
             // console.log(ProjectSlides)
         },
         events: function (modalElem, options) {
             // console.log(options)
             // console.log(this)
             const $thisObj = this
+            // console.log(options.modalHash)
 
             const ProjectId = options.targetElem.attr('data-id')
             //console.log(ProjectId)
             //let currentProjectContents
+            // console.log()
             $.ajax({
                 url: options.projectsJsonLink,
                 // type: "POST",
@@ -876,17 +889,17 @@ jQuery(document).ready(function ($) {
                     }
                 }
             });
-            $('body').on('modal:before-open', modalElem, function (event, modal) {
-                InitProjectSlider.init()
-            })
             $('body').on('modal:open', modalElem, function (event, modal) {
-                // console.log(event, modal)
+                InitProjectSlider.init()
                 // console.log(modal.$elm)
                 BlockScroll.open();
             })
             $('body').on('modal:close', modalElem, function (event, modal) {
                 BlockScroll.close();
-                InitProjectSlider.swiper.destroy()
+                // modal.$elm.find('.project-slider-wrapper .project-slider-container').remove()
+                if (InitProjectSlider.swiper != undefined)
+                    InitProjectSlider.swiper.destroy()
+                // modal.$elm.find('.project-slider-wrapper .slider-pagination').html('')
                 modal.$elm.find('.project-slider-wrapper .lightgallery-wrapper').remove()
             })
         }
@@ -897,6 +910,7 @@ jQuery(document).ready(function ($) {
         e.preventDefault()
         const $this = $(this),
             thisHash = $this.attr('data-modal')
+        // console.log(thisHash)
         ModalElem.init({
             targetElem: $this,
             modalHash: thisHash
