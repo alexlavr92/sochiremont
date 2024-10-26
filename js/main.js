@@ -734,7 +734,8 @@ jQuery(document).ready(function ($) {
             projectsJsonLink: './json/projects.json',
         },
         init: function (options) {
-            const modalElem = $('#' + options.modalHash + '')
+            this.modalElem = $('#' + options.modalHash + '')
+            const modalElem = this.modalElem
             this.defaultsOption.ProjectName = modalElem.find('.project-name')
             this.defaultsOption.ProjectValues = modalElem.find('.projects-values')
             this.defaultsOption.ProjectAddress = modalElem.find('.project-address')
@@ -746,16 +747,10 @@ jQuery(document).ready(function ($) {
             this.defaultsOption.ProjectSlider = modalElem.find('.project-slider-wrapper')
             // console.log(this.defaultsOption)
             var options = $.extend(this.defaultsOption, options)
-            let click_close = true;
+
 
             // console.log('init modal')
-            modalElem.modal({
-                fadeDuration: 150,
-                closeExisting: false, // новое 11.07.2022
-                closeClass: "close-custom",
-                closeText: '<span class="visually-hidden">Закрыть</span>',
-                clickClose: click_close, // новое 28.11.2022
-            });
+
 
             this.events(modalElem, options)
 
@@ -835,9 +830,20 @@ jQuery(document).ready(function ($) {
             Gallery.init({
                 GalleryWrapper: ProjectSwiperWrapper
             })
+            this.initModal()
             if (InitProjectSlider.swiper != undefined)
                 InitProjectSlider.swiper.update()
             // console.log(ProjectSlides)
+        },
+        initModal: function () {
+            let click_close = true;
+            this.modalElem.modal({
+                fadeDuration: 150,
+                closeExisting: false, // новое 11.07.2022
+                closeClass: "close-custom",
+                closeText: '<span class="visually-hidden">Закрыть</span>',
+                clickClose: click_close, // новое 28.11.2022
+            });
         },
         events: function (modalElem, options) {
             // console.log(options)
