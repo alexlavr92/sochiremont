@@ -665,9 +665,9 @@ jQuery(document).ready(function ($) {
                     watchOverflow: true,
                     watchSlidesVisibility: true,
                     touchReleaseOnEdges: true,
-                    observer: true,
+                    // observer: true,
                     // observeParents: true,
-                    observeSlideChildren: true,
+                    // observeSlideChildren: true,
                     // loop: true,
                     grabCursor: true,
                     /* effect: 'fade',
@@ -835,7 +835,8 @@ jQuery(document).ready(function ($) {
             Gallery.init({
                 GalleryWrapper: ProjectSwiperWrapper
             })
-
+            if (InitProjectSlider.swiper != undefined)
+                InitProjectSlider.swiper.update()
             // console.log(ProjectSlides)
         },
         events: function (modalElem, options) {
