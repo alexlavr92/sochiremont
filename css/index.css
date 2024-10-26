@@ -1884,6 +1884,17 @@ header.sticky .header-bg {
 .--third .project-item {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  padding-left: calc(7.5vw + 45px);
+}
+@media screen and (max-width: 1650px) {
+  .--third .project-item {
+    padding-left: calc(4vw + 45px);
+  }
+}
+@media screen and (max-width: 1500px) {
+  .--third .project-item {
+    padding-left: calc(3vw + 45px);
+  }
 }
 .project-item-outer:not(.--first):not(.--third) .project-item {
   border-radius: 20px;

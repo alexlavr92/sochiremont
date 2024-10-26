@@ -91,6 +91,19 @@
     .--third & {
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;
+        padding-left: calc(7.5vw + 45px);
+
+        @media screen {
+
+            @media (max-width: 1650px) {
+                padding-left: calc(4vw + 45px);
+            }
+
+            @media (max-width: 1500px) {
+                padding-left: calc(3vw + 45px);
+            }
+        }
+
     }
 
     .project-item-outer:not(.--first):not(.--third) & {
