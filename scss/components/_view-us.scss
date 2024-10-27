@@ -38,9 +38,10 @@
     align-items: center;
     position: relative;
     z-index: 0;
+    width: 100%;
 
     &:before {
-        content: '';
+        // content: '';
         position: absolute;
         width: calc(100% + 20px);
         height: 100%;
@@ -56,10 +57,29 @@
 
 .view-item {
     @include flex-column;
-    gap: 5px;
+    width: calc(33.3% - 40px);
+    // gap: 5px;
     letter-spacing: .02em;
     font-size: .8rem;
     line-height: 1.2rem;
+    // color: $color-text-white;
+    gap: 10px;
+
+
+    .video {
+        // padding: 5px;
+        width: 100%;
+        height: 16vw;
+        padding: 2px;
+        background-color: $color-bg-dark;
+        border-radius: 10px;
+        overflow: hidden;
+
+        iframe {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    }
 
     >span:first-child {
         text-transform: uppercase;
@@ -67,14 +87,14 @@
 
     }
 
-    >span:last-child {
+    >a:last-child {
         color: $color-text-white;
         border-bottom: 1px solid;
         transition: $transition;
         // font-size: ;
-    }
 
-    &:hover>span:last-child {
-        border-color: transparent;
+        &:hover {
+            border-color: transparent;
+        }
     }
 }
