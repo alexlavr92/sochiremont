@@ -2491,7 +2491,7 @@ header:not(.sticky) .header-socials {
 .view-item .video {
   width: 100%;
   height: 16vw;
-  padding: 2px;
+  /*   padding: 2px; */
   background-color: #3A3633;
   border-radius: 10px;
   overflow: hidden;
