@@ -24,6 +24,9 @@
     <!-- Datapicker CSS-->
     <link rel="stylesheet" type="text/css" href="./js/plugins/datapicker/air-datepicker.css">
 
+    <!-- DropZone CSS-->
+    <!-- <link rel="stylesheet" type="text/css" href="./css/plugins/dropzone.min.css"> -->
+
     <!-- LightGallery -->
     <link rel="stylesheet" type="text/css" href="./css/lightgallery.min.css" />
     <!-- Style CSS-->
@@ -544,7 +547,7 @@
                                 <div class="price-old">от 40 т.р./м<span>2</span></div>
                             </div>
                             <div class="btns-wrapper flex-block">
-                                <a href="javascript: void(0)" class="btn btn-yellow">Рассчитать стоимость</a>
+                                <a href="#brif" class="btn btn-yellow btn-animate">Рассчитать стоимость</a>
                                 <a href="#our-projects" class="btn btn-contur btn-animate">Посмотреть работы</a>
                             </div>
                         </div>
@@ -571,7 +574,7 @@
                                 <div class="price-old">от 60 т.р./м<span>2</span></div>
                             </div>
                             <div class="btns-wrapper flex-block">
-                                <a href="javascript: void(0)" class="btn btn-yellow">Рассчитать стоимость</a>
+                                <a href="#brif" class="btn btn-yellow btn-animate">Рассчитать стоимость</a>
                                 <a href="#our-projects" class="btn btn-contur btn-animate">Посмотреть работы</a>
                             </div>
                         </div>
@@ -594,7 +597,7 @@
                                 <div class="price-old">от 80 т.р./м<span>2</span></div>
                             </div>
                             <div class="btns-wrapper flex-block">
-                                <a href="javascript: void(0)" class="btn btn-yellow">Рассчитать стоимость</a>
+                                <a href="#brif" class="btn btn-yellow btn-animate">Рассчитать стоимость</a>
                                 <a href="#our-projects" class="btn btn-contur btn-animate">Посмотреть работы</a>
                             </div>
                         </div>
@@ -736,33 +739,196 @@
                                 <span>Ремонт квартир и домов | Сочи</span>
                             </a>
                         </div>
-                        <!--  <a href="javascript: void(0)" class="view-item flex-block" data-aos="fade-right"
-                            data-aos-duration="1200" data-aos-delay="150">
-                            <span>RuTube</span>
-                            <span>danilenkomihail.1200</span>
-                        </a> -->
-                        <!--   <a href="javascript: void(0)" class="view-item flex-block" data-aos="fade-right"
-                            data-aos-duration="1200" data-aos-delay="250">
-                            <span>VK</span>
-                            <span>danilenkomihail.1200</span>
-                        </a> -->
                     </div>
-
                 </div>
             </div>
 
         </section>
-        <!-- <section class="brifing">
+        <section class="brifing" id="brif">
             <div class="new-container">
-                <h2 class="heading" data-aos="fade-up" data-aos-duration="1200">
-                    заполните простую анкету
+                <h2 class="heading" data-aos="fade-up" data-aos-duration="1200">заполните простую анкету
                     с&#160;описанием объекта
                 </h2>
                 <div class="brifing-wrapper flex-block">
-
+                    <div class="brifing-main-wrapper flex-block">
+                        <div class="brifing-switcher flex-block" data-aos="fade-up" data-aos-duration="1200">
+                            <div class="btn-switcher --prev pointer --disabled">
+                                <span></span>
+                            </div>
+                            <div class="text-switcher">
+                                Шаг <span class="current">1</span> из <span class="all">3</span>
+                            </div>
+                            <div class="width-switcher">
+                                <span class="width-swither-inner"></span>
+                            </div>
+                            <div class="btn-switcher --next pointer">
+                                <span></span>
+                            </div>
+                        </div>
+                        <form action="" id="brifing-form" class="brifing-form" data-type="brifing-form">
+                            <div class="brifing-form-step active flex-block">
+                                <div class="default-input-wrapper input-required --data-picker" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <label for="brifing-date">Дата начала проекта (стройки)</label>
+                                    <input type="text" name="brifing-date" id="brifing-date" placeholder="Выберите дату"
+                                        class="input-default input-data-picker" readonly data-option="date-start">
+                                </div>
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <label for="brifing-address">Адрес объекта</label>
+                                    <input type="text" name="brifing-address" id="brifing-address"
+                                        placeholder="г. Сочи, ул. Ленина д. 5" class="input-default input-adress"
+                                        data-option="address-object">
+                                </div>
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <label for="brifing-type">Тип объекта</label>
+                                    <select name="brifing-type" id="brifing-type" class="custom-select"
+                                        data-option="type-object">
+                                        <option value="Выберите" disabled selected>Выберите</option>
+                                        <option value="Квартира">Квартира</option>
+                                        <option value="Частный дом">Частный дом</option>
+                                        <option value="Коммерческая недвижимость">Коммерческая недвижимость</option>
+                                        <option value="Дача">Дача</option>
+                                    </select>
+                                </div>
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <label for="brifing-square">Площадь помещения, м<sup>2</sup></label>
+                                    <input type="text" name="brifing-square" id="brifing-square"
+                                        placeholder="Укажите количество кв. м." class="input-default input-square"
+                                        data-option="square-object">
+                                </div>
+                                <div class="default-input-wrapper --radio" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <span class="label">Требуется система Умного дома?</span>
+                                    <div class="radiobtns-wrapper flex-block">
+                                        <div class="radiobtn-wrapper">
+                                            <input id="smart-house-1" type="radio" name="radio-smart" value="yes">
+                                            <label class="radiobtn-label" for="smart-house-1">Да</label>
+                                        </div>
+                                        <div class="radiobtn-wrapper">
+                                            <input id="smart-house-2" type="radio" name="radio-smart" value="no">
+                                            <label class="radiobtn-label" for="smart-house-2">Нет</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="default-input-wrapper --radio" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <span class="label">Нужны демонтажные работы?</span>
+                                    <div class="radiobtns-wrapper flex-block">
+                                        <div class="radiobtn-wrapper">
+                                            <input id="works-1" type="radio" name="radio-works" value="yes">
+                                            <label class="radiobtn-label" for="works-1">Да</label>
+                                        </div>
+                                        <div class="radiobtn-wrapper">
+                                            <input id="works-2" type="radio" name="radio-works" value="no">
+                                            <label class="radiobtn-label" for="works-2">Нет</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="default-input-wrapper --radio" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <span class="label">Нужна мебель?</span>
+                                    <div class="radiobtns-wrapper flex-block">
+                                        <div class="radiobtn-wrapper">
+                                            <input id="furniture-1" type="radio" name="radio-furniture" value="yes">
+                                            <label class="radiobtn-label" for="furniture-1">Да</label>
+                                        </div>
+                                        <div class="radiobtn-wrapper">
+                                            <input id="furniture-2" type="radio" name="radio-furniture" value="no">
+                                            <label class="radiobtn-label" for="furniture-2">Нет</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="default-input-wrapper --radio-big" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <span class="label">Нужна ли комплектация объекта черновыми и чистовыми
+                                        материалами?</span>
+                                    <div class="radiobtns-wrapper flex-block">
+                                        <div class="radiobtn-wrapper">
+                                            <input id="complectation-1" type="radio" name="complectation-furniture"
+                                                value="yes">
+                                            <label class="radiobtn-label" for="complectation-1">Да</label>
+                                        </div>
+                                        <div class="radiobtn-wrapper">
+                                            <input id="complectation-2" type="radio" name="complectation-furniture"
+                                                value="no">
+                                            <label class="radiobtn-label" for="complectation-2">Нет</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="brifing-form-step --dropzone flex-block">
+                                <div class="label">Загрузите файл с готовым дизайн проектом при наличии</div>
+                                <div class="files-input-wrapper">
+                                    <input type="file" name="file-input" id="file-input">
+                                    <label for="file-input" class="label-file flex-block pointer">
+                                        <div class="img-wrapper"><img src="./media/icons/cloud.svg" alt=""></div>
+                                        <div><span>Прикрепите</span> файл с описанием</div>
+                                    </label>
+                                    <div class="input-file-list flex-block"></div>
+                                </div>
+                            </div>
+                            <div class="brifing-form-step flex-block">
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200">
+                                    <label for="brifing-name">Как к вам обращаться</label>
+                                    <input type="text" name="brifing-name" id="brifing-name" placeholder="Фамилия Имя"
+                                        class="input-default input-name">
+                                </div>
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200" data-aos-delay="100">
+                                    <label for="brifing-phone">Номер телефона</label>
+                                    <input type="text" name="brifing-phone" id="brifing-phone" inputmode="tel"
+                                        placeholder="+7 999 999 99 99" class="input-default input-phone"
+                                        data-option="contacts-object">
+                                </div>
+                                <div class="default-input-wrapper input-required" data-aos="fade-right"
+                                    data-aos-duration="1200" data-aos-delay="200">
+                                    <label for="brifing-email">Email</label>
+                                    <input type="text" name="brifing-email" id="brifing-email" inputmode="email"
+                                        placeholder="llllllllllllll@mail.ru" class="input-default input-mail">
+                                </div>
+                                <div class="default-input-wrapper --textarea" data-aos="fade-right"
+                                    data-aos-duration="1200" data-aos-delay="200">
+                                    <label for="brifing-textarea" class="label-textarea">Индивидуальные
+                                        пожелания</label>
+                                    <textarea name="brifing-textarea" id="brifing-textarea"
+                                        placeholder="Напишите свои пожелания"></textarea>
+                                </div>
+                            </div>
+                            <div class="btns-wrapper flex-block">
+                                <button type="submit" class="btn btn-yellow pointer" form="brifing-form">Далее</button>
+                            </div>
+                        </form>
+                        <div class="request-success-wrapper">
+                            Спасибо, Ваша заявка отправлена.<br> Мы&#160;свяжемся с&#160;вами в&#160;ближайшее время!
+                        </div>
+                    </div>
+                    <div class="brifing-right-wrapper flex-block">
+                        <div class="title" data-aos="fade-up" data-aos-duration="1200">Ваш проект:</div>
+                        <div class="brifing-objects-options flex-block">
+                            <div class="option" data-option="date-start" data-aos="fade-right" data-aos-duration="1200"
+                                data-text="Дата начала">
+                                Дата начала</div>
+                            <div class="option" data-option="address-object" data-aos="fade-right"
+                                data-aos-duration="1200" data-aos-delay="100" data-text="Адрес объекта">Адрес объекта
+                            </div>
+                            <div class="option" data-option="type-object" data-aos="fade-right" data-aos-duration="1200"
+                                data-aos-delay="150" data-text="Тип объекта и помещения">Тип объекта и помещения</div>
+                            <div class="option" data-option="square-object" data-aos="fade-right"
+                                data-aos-duration="1200" data-aos-delay="200" data-text="Площадь помещения">Площадь
+                                помещения</div>
+                            <div class="option" data-option="file-object" data-aos="fade-right" data-aos-duration="1200"
+                                data-aos-delay="250" data-text="Прикрепленный файл">Прикрепленный файл</div>
+                            <div class="option" data-option="contacts-object" data-aos="fade-right"
+                                data-aos-duration="1200" data-aos-delay="300" data-text="Контакты">Контакты</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section> -->
+        </section>
         <section class="faq" id="faq">
             <div class="new-container">
                 <div class="w-big" data-aos="fade-up" data-aos-duration="1200">
@@ -1111,6 +1277,8 @@
 <script type="text/javascript" src="./js/plugins/lightgallery/lightgallery-all.min.js"></script>
 <!-- Splitting -->
 <script src="./js/plugins/datapicker/air-datepicker.js"></script>
+<!-- DropZone JS -->
+<!-- <script src="./js/plugins/dropzone/dropzone.min.js"></script> -->
 <!-- Main -->
 <script type="text/javascript" src="./js/main.js"></script>
 
