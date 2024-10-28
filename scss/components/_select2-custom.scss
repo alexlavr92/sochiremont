@@ -1,0 +1,92 @@
+.select2.select2-container {
+    width: 100%;
+
+    border-radius: 50px;
+    font-size: 0.8rem;
+    padding: 0 25px;
+    transition: border-color .4s ease;
+
+    .select2-selection--single {
+        height: 52px;
+        line-height: 52px;
+        // color: #B1B1B1;
+    }
+
+    .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+        padding-right: 25px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .select2-selection__arrow {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        transform: translateY(-50%);
+        transition: $transition;
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            left: 9px;
+            border-radius: 1px;
+            top: 5px;
+            // border-right: 1px solid rgba(92, 92, 92, 0.5);
+            // border-bottom: 1px solid rgba(92, 92, 92, 0.5);
+            transform: rotate(45deg);
+            transition: $transition;
+        }
+    }
+
+    &.select2-container--open .select2-selection__arrow {
+        // top: auto;
+        // bottom: 50%;
+        transform: rotate(-180deg) translateY(50%);
+    }
+}
+
+.select2-container:not(.select2) {
+    .select2-dropdown {
+        overflow: hidden;
+        border-radius: 20px;
+        border: 1px solid #5C5C5C !important;
+
+        &.select2-dropdown--below {
+            top: 5px;
+        }
+
+        &.select2-dropdown--above {
+            top: -5px;
+        }
+    }
+
+
+
+    .select2-results__option[aria-disabled="true"] {
+        display: none;
+    }
+
+    .select2-results__options {
+        padding: 10px 0;
+    }
+
+    .select2-results__option {
+        padding: 10px 25px;
+        font-size: .8rem;
+        transition: $transition;
+
+        &[aria-selected="true"] {
+            background-color: #F2EFE5;
+        }
+
+        &.select2-results__option--highlighted {
+            background-color: rgba(#F2EFE5, .4);
+        }
+    }
+}

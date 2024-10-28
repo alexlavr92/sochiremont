@@ -1,0 +1,40 @@
+.brifing-dropzone {
+    height: 190px;
+    background-color: #F2EFE5;
+    border-radius: 20px;
+    border: 1px solid rgba(#5c5c5c, .2);
+    transition: $transition;
+    /*  justify-content: center; */
+    padding: 20px;
+    gap: 30px;
+
+    &:hover,
+    &:active,
+    &.active {
+        border-color: #5c5c5c;
+    }
+
+    .dz-message {
+        font-size: .8rem;
+        height: 100%;
+        @include flex-column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        span {
+            color: #4083FF;
+        }
+    }
+
+    &.dz-started {
+        .dz-message {
+            display: none;
+        }
+    }
+
+    .dz-preview {
+        width: calc(33.3% - 20px);
+    }
+}

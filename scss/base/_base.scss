@@ -280,9 +280,136 @@ h4 {
         border: 1px solid transparent;
         outline: none;
         border-radius: 50px;
-        padding: 25px;
+        padding: 0 25px;
         overflow: hidden;
         font-size: .8rem;
+    }
+}
+
+input[type="radio"],
+input[type="file"] {
+    display: none;
+}
+
+.radiobtn-wrapper {
+
+    $color-label-active: #4083FF;
+
+    >label {
+        position: relative;
+        padding-left: 35px;
+        transition: $transition;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            color: $color-label-active;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            transition: $transition;
+        }
+
+        &:before {
+            width: 20px;
+            height: 20px;
+            border: 3px solid #5C5C5C;
+            left: 0;
+        }
+
+        &:after {
+            width: 14px;
+            height: 14px;
+            background-color: #5C5C5C;
+            left: 6px;
+        }
+    }
+
+    input:checked+label {
+        color: $color-label-active;
+
+        &:before {
+            border-color: $color-label-active;
+        }
+
+        &:after {
+            background-color: $color-label-active;
+        }
+
+    }
+}
+
+.files-input-wrapper {
+    width: 100%;
+
+
+    .label-file {
+        height: 190px;
+        @include flex-column;
+        font-size: .8rem;
+        gap: 10px;
+        background: #F2EFE5;
+        border: 1px solid rgba(#5C5C5C, .2);
+        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        transition: $transition;
+
+        &:hover,
+        &:active {
+            border-color: #5C5C5C;
+        }
+
+        span {
+            color: #4083FF;
+        }
+    }
+
+    input.active+.label-file {
+        border-color: #5C5C5C;
+    }
+
+    .input-file-list {
+        margin-top: 35px;
+        font-size: .8rem;
+
+        .input-file-list-item {
+            padding-left: 30px;
+            position: relative;
+
+            &:before {
+                content: '';
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                width: 24px;
+                height: 24px;
+                background-image: url(../media/icons/attach.svg);
+                position: absolute;
+            }
+        }
+
+        .invalid-text {
+            color: #CC0A0A;
+        }
+
+        .input-file-list-name {
+            color: #4083FF;
+
+            // border-bottom: 1px solid;
+
+        }
+
+        .input-file-list-remove {
+            margin-left: 10px;
+            color: #CC0A0A;
+        }
     }
 }
 
@@ -378,6 +505,28 @@ h4 {
                 }
             }
         }
+    }
+}
+
+textarea {
+    width: 100%;
+    height: 190px;
+    background: #F2EFE5;
+    border: 1px solid rgba(#5C5C5C, .2);
+    border-radius: 20px;
+    transition: $transition;
+    padding: 25px;
+    resize: none;
+    font-size: .8rem;
+    overflow: auto;
+    @include placeholder-color(#B1B1B1);
+    outline: none;
+    -webkit-appearance: none;
+
+    &:hover,
+    &:active,
+    &.active {
+        border-color: #5C5C5C;
     }
 }
 

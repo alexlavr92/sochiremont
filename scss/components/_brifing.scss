@@ -1,5 +1,6 @@
 .brifing {
 
+
     h2 {
         max-width: 52%;
         padding-bottom: 70px;
@@ -14,3 +15,325 @@
 .brifing-wrapper {
     width: 100%;
 }
+
+.brifing-main-wrapper {
+    width: 75%;
+    @include flex-column;
+    gap: 70px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .request-success-wrapper {
+        color: $color-bg-dark;
+        font-family: $font-title;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        letter-spacing: .02em;
+        line-height: 150%;
+        display: none;
+        width: 100%;
+        padding-right: 3vw;
+        border-right: 1px solid rgba($color-bg-dark, .2);
+    }
+
+}
+
+.brifing-switcher {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 25px;
+    letter-spacing: .02em;
+    font-size: .8rem;
+    // transition: $transition;
+
+    &.hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .btn-switcher {
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        >span {
+            width: 10px;
+            position: absolute;
+            height: 10px;
+            display: block;
+            transform: rotate(45deg) translate(-50%, -50%);
+            top: 13px;
+            transition: $transition;
+        }
+
+
+        &.--prev>span {
+            border-bottom: 2px solid rgba($color-bg-dark, .5);
+            border-left: 2px solid rgba($color-bg-dark, .5);
+            left: 8px;
+        }
+
+        &.--next>span {
+            border-top: 2px solid rgba($color-bg-dark, .5);
+            border-right: 2px solid rgba($color-bg-dark, .5);
+            right: 8px;
+        }
+
+        &:not(.--disabled):hover,
+        &:not(.--disabled):active {
+            >span {
+                border-color: $color-bg-dark !important;
+            }
+        }
+
+    }
+
+    .width-switcher {
+        width: 240px;
+        height: 5px;
+        border-radius: 100px;
+        background-color: #EDEDED;
+
+        .width-swither-inner {
+            width: 33.3%;
+            height: 100%;
+            border-radius: 100px;
+            background-color: $color-text-second;
+            display: block;
+            transition: all .4s;
+        }
+    }
+}
+
+.brifing-form {
+    width: 100%;
+    min-height: 460px;
+    @include flex-block;
+    @include flex-column;
+    padding-right: 3vw;
+    border-right: 1px solid rgba($color-bg-dark, .2);
+
+    .--data-picker {
+        position: relative;
+        z-index: 1;
+
+        .input-data-picker {
+            padding-left: 60px;
+            background-image: url(../media/icons/calendar.svg);
+            cursor: pointer;
+            @include bg-style;
+            background-size: 24px 24px;
+            background-position: 25px center;
+        }
+    }
+
+    .brifing-form-step {
+        width: 100%;
+        margin-bottom: 70px;
+
+        &:not(.active) {
+            display: none;
+        }
+
+        gap: 50px;
+        justify-content: flex-start;
+
+        >* {
+            // flex: 1;
+            width: calc(33.3% - 33.3px);
+        }
+
+        &.--dropzone {
+            @include flex-column;
+            gap: 15px;
+
+            >* {
+                width: auto;
+            }
+
+            .files-input-wrapper {
+                width: 100%;
+            }
+        }
+
+        .--textarea,
+        .--radio-big {
+            flex: 1;
+            width: auto;
+
+            >* {
+                width: 100%;
+            }
+        }
+    }
+
+    .label {
+        font-size: .8rem;
+    }
+
+    .label,
+    label:not(.radiobtn-label):not(.label-file) {
+        color: $color-bg-dark;
+        position: relative;
+        align-items: flex-start;
+        gap: 5px;
+
+    }
+
+    .input-required {
+
+        .label:after,
+        label:not(.radiobtn-label):after {
+            content: '*';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            font-size: .8rem;
+            color: #CC0A0A;
+        }
+    }
+
+    .input-default {
+        background-color: #F2EFE5;
+        border: 1px solid rgba(#5C5C5C, .2);
+        @include placeholder-color(#B1B1B1);
+        transition: $transition;
+
+        &:hover,
+        &:active,
+        &.active {
+            border-color: #5C5C5C;
+        }
+    }
+
+    .select2.select2-container {
+        background-color: #F2EFE5;
+        border: 1px solid rgba(92, 92, 92, 0.2);
+        transition: $transition;
+
+        &:hover,
+        &:active,
+        &.select2-container--open,
+        &.select2-selected {
+            border-color: #5C5C5C;
+
+            .select2-selection__arrow:after {
+                border-color: #5C5C5C;
+            }
+        }
+
+        .select2-selection--single {
+            // height: 52px;
+            // line-height: 52px;
+            color: #B1B1B1;
+        }
+
+        &.select2-selected .select2-selection--single {
+            color: $color-bg-dark;
+        }
+
+        .select2-selection__arrow:after {
+            border-right: 1px solid rgba(92, 92, 92, 0.5);
+            border-bottom: 1px solid rgba(92, 92, 92, 0.5);
+
+        }
+    }
+
+    .invalid .select2.select2-container {
+        border-color: #CC0A0A;
+    }
+
+    .radiobtns-wrapper {
+        margin-top: 15px;
+        width: 100%;
+        gap: 30px;
+        align-items: center;
+    }
+
+    .btns-wrapper {
+        margin-top: auto;
+        width: 100%;
+        justify-content: flex-end;
+        gap: 10px;
+        align-items: center;
+        // padding-right: 3vw;
+
+        .btn {
+            transition: $transition;
+        }
+    }
+}
+
+.brifing-right-wrapper {
+    flex: 1;
+    margin-left: 3vw;
+    @include flex-column;
+    gap: 70px;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .title {
+        font-size: 1rem;
+        font-weight: $font-medium;
+    }
+}
+
+.brifing-objects-options {
+    @include flex-column;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: $color-text-second;
+    font-size: .8rem;
+    font-weight: $font-medium;
+
+    [data-option="file-object"] {
+        position: relative;
+        padding-left: 30px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background-image: url(../media/icons/icon-file.svg);
+            @include bg-style;
+        }
+    }
+
+    .option {
+        width: 100%;
+        overflow: hidden;
+    }
+}
+
+.air-datepicker {
+    width: 100%;
+    // height: 15vw;
+    // background: $color-bg-white;
+}
+
+.air-datepicker-body--cells.-days- {
+    grid-auto-rows: 2.5vw;
+}
+
+.air-datepicker-cell.-current- {
+    color: $color-text-second;
+}
+
+.air-datepicker-cell.-selected-,
+.air-datepicker-cell.-selected-.-focus-,
+.air-datepicker-cell.-selected-.-current-,
+.-selected-.air-datepicker-cell.-day-.-other-month- {
+    background: $color-text-second;
+}
+
+/* .air-datepicker-body--day-names,
+.air-datepicker-body--cells.-days- {
+    grid-gap: 10px;
+} */
