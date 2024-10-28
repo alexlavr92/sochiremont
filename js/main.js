@@ -341,7 +341,14 @@ jQuery(document).ready(function ($) {
     }
     InitMaskName()
 
-
+    let ValidateEmail = function (email) {
+        // console.log(email.value)
+        var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        if (reg.test(email.val()) == false) {
+            return false
+        }
+        else return true
+    }
     // Инициадизация отправки формы
     const Forms = {
         defaultsOptions: {
@@ -361,14 +368,6 @@ jQuery(document).ready(function ($) {
                             $(InvalidText).appendTo(ItemInputWrapper)
                         }
                     }
-                }
-                let ValidateEmail = function (email) {
-                    // console.log(email.value)
-                    var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-                    if (reg.test(email.val()) == false) {
-                        return false
-                    }
-                    else return true
                 }
 
                 // console.log('submit')
@@ -452,7 +451,7 @@ jQuery(document).ready(function ($) {
     let InitDataPicker = function () {
         let DataPickerElems = []
 
-        var DataPickers = $('body').find('.air-datepicker-custom'),
+        var DataPickers = $('body').find('.input-data-picker'),
             mobileView = false
         if (docWidth < 1200) mobileView = true
 
@@ -461,18 +460,21 @@ jQuery(document).ready(function ($) {
             $(datapicker).attr('id', '').attr('data-picker', '')
             $(datapicker).removeAttr('value date')
             $(datapicker).attr('id', 'datapicker-' + (index + 1) + '').attr('data-picker', '' + (index + 1) + '')
+            // let ParentContainer = 
             DataPickerElems[index] = new AirDatepicker('#datapicker-' + (index + 1) + '', {
                 // isMobile: mobileView,
                 autoClose: true,
                 // showOtherMonths: false,
-                showEvent: '',
+                // showEvent: '',
                 // inline: true,
+                // visible: true,
                 // selectOtherMonths: false,
                 toggleSelected: false,
-                selectedDates: [new Date()],
-                // minDate: MinDate(),
-                inline: true,
-                visible: true,
+                container: this.parentNode,
+                // selectedDates: [new Date()],
+                minDate: [new Date()],
+                // inline: true,
+                // visible: true,
                 // dateFormat: 'd MMMM yyyy',
                 dateFormat(date) {
                     // console.log(date);
@@ -486,32 +488,53 @@ jQuery(document).ready(function ($) {
 
                 // },
                 onRenderCell({ date, cellType }) {
-                    console.log('finish')
+                    // console.log('finish')
+                },
+                onShow() {
+                    if (!$(datapicker).hasClass('active'))
+                        $(datapicker).addClass('active')
+                },
+                onHide() {
+                    if ($(datapicker).hasClass('active') && $(datapicker).attr('value') == undefined)
+                        $(datapicker).removeClass('active')
                 },
                 onSelect({ date, formattedDate, datepicker }) {
-                    console.log(date, formattedDate, datepicker)
-                    const DateHeading = $('.events-right .heading')
-                    if (DateHeading != undefined) {
-                        DateHeading.text('События ' + formattedDate)
-
-                        const EventsItems = DateHeading.closest('.events-section').find('.events-items')
-
-                        EventsItems.hide({
-                            duration: 0,
-                            //тут можно ajax запрос написать на изменение списка новостей
-                        }).fadeIn()
+                    // console.log(date, formattedDate, datepicker)
+                    if (formattedDate) {
+                        $(datapicker).attr('value', formattedDate).attr('date', date)
+                        $(datepicker.$el).trigger('change')
+                        if (!$(datapicker).hasClass('active'))
+                            $(datapicker).addClass('active')
                     }
-                    // const
-                    // if (formattedDate) {
-                    //     $(datapicker).attr('value', formattedDate).attr('date', date)
-                    //     $(datepicker.$el).trigger('change')
-                    //     AddServiceTimes($(datapicker))
-                    // }
-                    // else {
-                    //     $(datapicker).removeAttr('value date')
-                    // }
+                    else {
+                        $(datapicker).removeAttr('value date')
+                    }
 
                 }
+                // onSelect({ date, formattedDate, datepicker }) {
+                // console.log(date, formattedDate, datepicker)
+                // const DateHeading = $('.events-right .heading')
+                // if (DateHeading != undefined) {
+                //     DateHeading.text('События ' + formattedDate)
+
+                //     const EventsItems = DateHeading.closest('.events-section').find('.events-items')
+
+                //     EventsItems.hide({
+                //         duration: 0,
+                //         //тут можно ajax запрос написать на изменение списка новостей
+                //     }).fadeIn()
+                // }
+                // const
+                // if (formattedDate) {
+                //     $(datapicker).attr('value', formattedDate).attr('date', date)
+                //     $(datepicker.$el).trigger('change')
+                //     AddServiceTimes($(datapicker))
+                // }
+                // else {
+                //     $(datapicker).removeAttr('value date')
+                // }
+
+                // }
             })
         })
 
@@ -531,40 +554,25 @@ jQuery(document).ready(function ($) {
             // console.log(options)
             $.each(options.selects, function () {
                 const $this = $(this)
-                if ($this.hasClass('custom-select-search')) {
-                    $this.select2({
-                        minimumResultsForSearch: 0,
-                        // debug: true,
-                        // closeOnSelect: false,
-                        theme: "custom-select select-search",
-                        language: {
-                            inputTooShort: function () {
-                                return "Выберите больше опций...";
-                            },
-                            noResults: function () {
-                                return "Ничего не найдено";
-                            },
-                            searching: function () {
-                                return "Поиск...";
-                            },
-                            removeAllItems: function () {
-                                return "Удалить всё";
-                            },
-                        },
-                    });
-                }
-                else {
-                    $this.select2({
-                        minimumResultsForSearch: Infinity,
-                        theme: "custom-select",
-                        language: "ru",
-                        width: 'style',
-                    });
-                }
+                $this.select2({
+                    minimumResultsForSearch: Infinity,
+                    theme: "custom-select",
+                    language: "ru",
+                    width: 'style',
+                });
+
 
             })
-            // this.events(options.selects)
+            this.events(options)
         },
+        events: function (options) {
+            options.selects.on("change", function (e) {
+                // console.log($(this).prop("selectedIndex"))
+                if ($(this).prop("selectedIndex") != 0)
+                    $(this).siblings('.select2').addClass('select2-selected')
+            });
+            // console.log(options)
+        }
     }
 
     if ($('.custom-select').length) {
@@ -870,7 +878,7 @@ jQuery(document).ready(function ($) {
                     $thisObj.writeProjectContent()
                 },
                 error: function (request, status, error) {
-                    console.log(request.status)
+                    // console.log(request.status)
                     errorShow(request.status)
                 },
                 statusCode: {
@@ -963,12 +971,12 @@ jQuery(document).ready(function ($) {
 
     $("body").on("click", ".btn-animate", function (e) {
         e.preventDefault();
-        console.log('click')
+        // console.log('click')
         let header_offset = 0,
             $thisHash = $(this.hash),
             $thisHashOffset = $thisHash.offset().top,
             $duration = 1000
-        console.log($thisHash, $thisHashOffset)
+        // console.log($thisHash, $thisHashOffset)
         if (docWidth > 1200) {
             header_offset = $('.header-outer').innerHeight();
             // console.log(header_offset)
@@ -978,7 +986,7 @@ jQuery(document).ready(function ($) {
                 : header_offset = 0;
 
         }
-        console.log(header_offset)
+        // console.log(header_offset)
         let $scrollTop = $thisHashOffset - header_offset
         // console.log($scrollTop)
 
@@ -1019,6 +1027,318 @@ jQuery(document).ready(function ($) {
             ? $('.btn-up').addClass('show')
             : $('.btn-up').removeClass('show')
     });
+
+
+    const FilesInit = {
+        defaultOptions: {
+            dataTransfer: new DataTransfer(),
+            fileInput: $('.files-input-wrapper input[type="file"]'),
+            maxSizeDoc: 8,
+        },
+        init: function (options) {
+            var options = $.extend(this.defaultOptions, options)
+            this.events(options)
+        },
+        events: function (options) {
+            const $files_list = options.fileInput.closest('.files-input-wrapper').find('.input-file-list')
+            options.fileInput.on('change', function () {
+                const $this = $(this)
+                // $files_list = $this.closest('.files-input-wrapper').find('.input-file-list')
+                $files_list.empty();
+
+                for (var i = 0; i < this.files.length; i++) {
+                    let file = this.files.item(i);
+
+                    if ((file.size / 1024 / 1024) < options.maxSizeDoc && file.type.match(/(.png)|(.jpeg)|(.pdf)|(.jpg)$/i)) {
+                        options.dataTransfer.items.add(file);
+                        // console.log((file.size / 1024 / 1024))
+                        let reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onloadend = function () {
+                            let new_file_input = '<div class="input-file-list-item">' +
+                                // '<img class="input-file-list-img" src="' + reader.result + '">' +
+                                '<span class="input-file-list-name">' + file.name + '</span>' +
+                                '<a href="javascript: void(0)" class="input-file-list-remove">x</a>' +
+                                '</div>';
+                            $files_list.append(new_file_input);
+                            BrifingForm.defaultsOptions.BrifingOptions.find('[data-option="file-object"]').html(file.name)
+                        }
+                        $this.addClass('active')
+                    }
+                    else {
+                        let text
+                        if ((file.size / 1024 / 1024) > 5) {
+                            text = "<span class='invalid-text'>Размер файла не должен быть больше " + options.maxSizeDoc + " Мб</span>"
+                        }
+                        if (!file.type.match(/(.png)|(.jpeg)|(.pdf)|(.jpg)$/i)) {
+                            text = "<span class='invalid-text'>Загрузите файл в одном из форматов: png, jpeg, pdf, jpg</span>"
+                        }
+                        $files_list.append(text)
+                    }
+
+                };
+                this.files = options.dataTransfer.files;
+                // console.log(this.files)
+            })
+
+            $files_list.on('click', '.input-file-list-remove', function () {
+                // console.log($files_list)
+                const target = $(this),
+                    dt = options.dataTransfer
+                // console.log(dt.files)
+                let name = $(target).prev().text();
+                let input = $(target).closest('.files-input-wrapper').find('input[type=file]');
+                $(target).closest('.input-file-list-item').remove();
+                for (let i = 0; i < dt.items.length; i++) {
+                    if (name === dt.items[i].getAsFile().name) {
+                        dt.items.remove(i);
+                    }
+                }
+                // console.log(dt.files)
+                input[0].files = dt.files;
+                input.removeClass('active')
+                const BrifingFileOption = BrifingForm.defaultsOptions.BrifingOptions.find('[data-option="file-object"]')
+                BrifingFileOption.html(BrifingFileOption.attr('data-text'))
+                // console.log(options.fileInput[0].files)
+            })
+        }
+    }
+    FilesInit.init()
+
+
+
+    // Инициадизация отправки формы
+    const BrifingForm = {
+        defaultsOptions: {
+            BrifingWrapper: $('.brifing-wrapper'),
+            FormElem: $('.brifing-form'),
+            BrifingOptions: $('.brifing-objects-options')
+        },
+        defaultStep: 1,
+        allStep: 3,
+        oneStepWidth: function () {
+            const oneStepWidth = 100 / this.allStep
+            return oneStepWidth
+        },
+        stepSwitcher: function (state) {
+            state == 'next'
+                ? this.defaultStep = this.defaultStep + 1
+                : this.defaultStep = this.defaultStep - 1
+
+            this.defaultStep == this.allStep
+                ? this.btnSubmit.text('Отправить анкету')
+                : this.btnSubmit.text('Далее')
+
+            let options = this.defaultsOptions
+            options.FormElem.find('.brifing-form-step.active').removeClass('active')
+            options.FormElem.find('.brifing-form-step:nth-child(' + this.defaultStep + ')').addClass('active').hide().fadeIn()
+
+            if (this.defaultStep != 1) {
+                const btnBack = '<a href="javascript: void(0)" class="btn btn-contur">Назад</a>'
+                const FormBtnWrapper = options.FormElem.find('.btns-wrapper')
+                if (!options.FormElem.find('.btn.btn-contur').length)
+                    $(btnBack).prependTo(FormBtnWrapper)
+            }
+            else {
+                options.FormElem.find('.btn.btn-contur').remove()
+            }
+
+            const BrifSwitcher = options.BrifingWrapper.find('.brifing-switcher'),
+                BrifWidthSwitcher = BrifSwitcher.find('.width-swither-inner'),
+                BrifTextSwitcher = BrifSwitcher.find('.text-switcher .current')
+
+            BrifTextSwitcher.text(this.defaultStep)
+            BrifWidthSwitcher.css({
+                'width': this.oneStepWidth() * this.defaultStep + '%'
+            })
+        },
+        submit: function (options) {
+            const $obj = this
+            var options = $.extend(this.defaultsOptions, options)
+            this.btnSubmit = options.FormElem.find('button.btn')
+            // console.log(options)
+            options.FormElem.on('submit', function (e) {
+                e.preventDefault()
+                let EditInputWrapper = function (input, invalidText) {
+                    if (!input.closest('.default-input-wrapper.invalid').length) {
+                        var ItemInputWrapper = input.closest('.default-input-wrapper')
+                        ItemInputWrapper.addClass('invalid')
+                        if (invalidText) {
+                            var InvalidText = "<span class='invalid-text'>" + invalidText + "</span>"
+                            $(InvalidText).appendTo(ItemInputWrapper)
+                        }
+                    }
+                }
+
+                // console.log('submit')
+                let $this = $(this),
+                    InvalidCount = 0,
+                    AllRequiredInputs = $this.find('.brifing-form-step.active .input-required input'),
+                    SelectTypeProject = $this.find('.brifing-form-step.active .input-required select')
+                // console.log(AllRequiredInputs)
+
+                $.each(AllRequiredInputs, function (i, input) {
+
+                    if ($(input).attr('type') == 'text' && $(input).attr('readonly') != 'readonly') {
+                        // console.log($(input))
+                        if ($(input).val() == '') {
+                            EditInputWrapper($(input), 'Заполните обязательное поле')
+                            InvalidCount += 1
+                        }
+                        else {
+                            if ($(input).hasClass('input-phone') && !$(input).inputmask("isComplete")) {
+                                EditInputWrapper($(input), 'Введите корректный номер')
+                                InvalidCount += 1
+                            }
+                            if ($(input).hasClass('input-mail') && !ValidateEmail($(input))) {
+                                EditInputWrapper($(input), 'Введите корректный email')
+                                InvalidCount += 1
+                            }
+                        }
+                    }
+                    if ($(input).hasClass('input-data-picker') && $(input).attr('value') == undefined) {
+                        EditInputWrapper($(input), 'Выберите дату')
+                        InvalidCount += 1
+                    }
+
+                })
+                if (SelectTypeProject.prop("selectedIndex") == 0) {
+                    EditInputWrapper(SelectTypeProject, 'Выберите тип помещения')
+                    InvalidCount += 1
+                }
+                if (InvalidCount == 0) {
+                    if ($obj.defaultStep != $obj.allStep) {
+                        $obj.stepSwitcher('next')
+                    }
+                    else {
+                        const formData = new FormData()
+
+                        let AllFinishInputs = $this.find('input:not([type="radio"]):not([type="file"])'),
+                            textarea = $this.find('textarea'),
+                            FilesInput = $this.find('input[type="file"]')
+                        // console.log(AllFinishInputs)
+                        if (textarea.val() != '')
+                            AllFinishInputs = AllFinishInputs.add(textarea)
+                        $.each(AllFinishInputs, function () {
+                            // console.log(this.value)
+                            let $thisVal = this.value
+                            if (this.getAttribute('name') == 'input-phone') {
+                                $thisVal = $thisVal.replace(/\s+/g, '')
+                            }
+                            formData.append(this.getAttribute('name'), $thisVal)
+                        })
+                        let files
+                        if (FilesInput.length)
+                            files = FilesInput.get(0).files
+                        if (files && files.length) {
+                            for (var i = 0; i < files.length; i++) {
+                                let file = files[i];
+                                // console.log(file)
+                                formData.append('files[]', file, file.name); // Добавляем каждый файл в объект FormData с его именем
+                            }
+                        }
+
+                        const AllRadioInputs = $this.find('input[type="radio"]:checked')
+                        if (AllRadioInputs.length) {
+                            $.each(AllRadioInputs, function () {
+                                // console.log(this.value)
+                                let $thisVal = this.value
+                                formData.append(this.getAttribute('name'), $thisVal)
+                            })
+                        }
+
+
+                        formData.append('form-type', $this.attr('data-type'))
+                        for (let [name, value] of formData) {
+                            console.log(`${name} = ${value}`)
+                            // alert(`${name} = ${value}`); // key1=value1, потом key2=value2
+                        }
+                        const RequestSuccess = $this.siblings('.request-success-wrapper'),
+                            $thisFormHeight = $this.innerHeight()
+                        options.BrifingWrapper.find('.brifing-switcher').addClass('hide')
+                        RequestSuccess.fadeIn({
+                            start: function () {
+                                $this.hide().remove()
+                                $(this).css({
+                                    'height': $thisFormHeight + 'px',
+                                })
+
+                            },
+                        })
+                    }
+
+
+                    // Ajax-запрос тут можно написать
+
+
+
+                }
+                // e.preventDefault()
+            })
+            this.events(options.FormElem)
+        },
+        events: function (form) {
+            // Функционал изменения input
+            const $obj = this,
+                objectsOptions = this.defaultsOptions.BrifingOptions
+            form.on('input change', '.input-default, select, textarea', function (e) {
+                var $this = $(this),
+                    $thisInputWrapper = $this.closest('.default-input-wrapper')
+                $thisInputWrapper.find('.invalid-text').remove()
+                $thisInputWrapper.removeClass('invalid')
+
+                $this.val() != ''
+                    ? $this.addClass('active')
+                    : $this.removeClass('active')
+
+                const currentObjectOtion = objectsOptions.find('.option[data-option="' + $this.attr('data-option') + '"]')
+                if (currentObjectOtion.length) {
+                    if ($this.val() != '') {
+                        let currentObjectOtionText = $this.val()
+                        if (currentObjectOtion.attr('data-option') == 'square-object')
+                            currentObjectOtionText = currentObjectOtionText + ' м<sup>2</sup>'
+                        currentObjectOtion.html(currentObjectOtionText)
+                    }
+                    else {
+                        currentObjectOtion.text(currentObjectOtion.attr('data-text'))
+                    }
+                }
+            })
+            const options = this.defaultsOptions,
+                BtnPrevSwitcher = options.BrifingWrapper.find('.btn-switcher.--prev'),
+                BtnNextSwitcher = options.BrifingWrapper.find('.btn-switcher.--next')
+            // console.log(options)
+            // console.log(form.find('.btn-contur'))
+            BtnPrevSwitcher.on('click', function (e) {
+                e.preventDefault()
+                if ($obj.defaultStep != 1) {
+                    $obj.stepSwitcher('prev')
+                }
+                return false
+            })
+            BtnNextSwitcher.on('click', function (e) {
+                e.preventDefault()
+
+                if ($obj.defaultStep != $obj.allStep) {
+                    options.FormElem.trigger('submit')
+                }
+                return false
+            })
+            $('body').on('click', '.brifing-form .btn-contur', function (e) {
+                e.preventDefault()
+                if ($obj.defaultStep != 1) {
+                    $obj.stepSwitcher('prev')
+                }
+                return false
+            })
+        }
+    }
+
+    if ($('.brifing-form').length) {
+        BrifingForm.submit()
+    }
+    //------------------------------------
+
 }) // end ready
 
 // console.log(projectsJson)
