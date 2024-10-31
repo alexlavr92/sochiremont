@@ -568,7 +568,7 @@ input[type="checkbox"] {
             z-index: -1;
             left: 50%;
             transform: translateX(-50%);
-            max-width: none;
+            // max-width: none;
             animation: submitImg 3s linear infinite;
 
             @media screen and (max-width: 767px) {
