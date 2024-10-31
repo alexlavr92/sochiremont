@@ -1213,7 +1213,7 @@ jQuery(document).ready(function ($) {
             options.FormElem.find('.brifing-form-step.active').removeClass('active')
             options.FormElem.find('.brifing-form-step:nth-child(' + this.defaultStep + ')').addClass('active').hide().fadeIn()
 
-            window.scrollTo(0, (options.BrifingWrapper.offset().top - $('.header-outer').innerHeight()))
+            window.scrollTo(0, (options.BrifingWrapper.closest('.brifing').offset().top - $('.header-outer').innerHeight()))
 
             if (this.defaultStep != 1) {
                 const btnBack = '<a href="javascript: void(0)" class="btn btn-contur">Назад</a>'
