@@ -1349,24 +1349,26 @@ jQuery(document).ready(function ($) {
                         RequestSuccess.fadeIn({
                             start: function () {
                                 $this.hide().remove()
-                                // if (docWidth >= 1200) {
-                                $(this).css({
-                                    'height': $thisFormHeight + 'px',
-                                })
-                                // }
-                                // else {
-                                //     $(this).css({
-                                //         'height': '',
-                                //     })
-                                //     AOS.refresh()
-                                // }
-                            },
-                            complete: function () {
-                                if (docWidth < 1200) {
-                                    options.BrifingWrapper.addClass('form-send')
+                                if (docWidth >= 1200) {
+                                    $(this).css({
+                                        'height': $thisFormHeight + 'px',
+                                    })
                                 }
-                                window.scrollTo(0, (options.BrifingWrapper.offset().top - $('.header-outer').innerHeight()))
-                            }
+                                else {
+                                    $(this).css({
+                                        'height': '',
+                                    })
+                                    options.BrifingWrapper.addClass('form-send')
+                                    AOS.refresh()
+                                    window.scrollTo(0, (options.BrifingWrapper.offset().top - $('.header-outer').innerHeight()))
+                                }
+                            },
+                            // complete: function () {
+                            //     if (docWidth < 1200) {
+
+                            //     }
+
+                            // }
                         })
                     }
 
