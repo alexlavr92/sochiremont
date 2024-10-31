@@ -48,7 +48,7 @@
                         <a href="#our-reviews" class="header-nav-link btn-animate">отзывы</a>
                         <a href="#faq" class="header-nav-link btn-animate">вопросы и ответы</a>
                     </div>
-                    <span class="link-phone desctop-only">+7 (913)-038-86-92</span>
+                    <a href="tel: +79130388692" class="link-phone">+7 (913)-038-86-92</a>
                     <a href="#inline-request" class="link-request btn-animate">Cотрудничать</a>
 
                     <div class="header-socials flex-block">
@@ -61,10 +61,28 @@
                         <a href="javascript: void(0)" class="social-link">
                             <img src="./media/icons/instagram-black.svg" alt="">
                         </a>
-                        <!-- <a href="tel: +79130388692" class="social-link" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="250">
-                            <img src="./media/icons/phone.svg" alt="">
-                        </a> -->
+                    </div>
+                    <div class="header-hamburger pointer mobile-only"><span></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="header-mob">
+            <a href="javacript: void(0)" class="header-close"><span></span></a>
+            <div class="new-container">
+                <div class="header-mob-inner flex-block">
+                    <div class="header-mob-socials flex-block">
+                        <a href="javascript: void(0)" class="social-link">
+                            <img src="./media/icons/telegram.svg" alt="">
+                        </a>
+                        <a href="javascript: void(0)" class="social-link">
+                            <img src="./media/icons/wa.svg" alt="">
+                        </a>
+                        <a href="javascript: void(0)" class="social-link">
+                            <img src="./media/icons/instagram1.svg" alt="">
+                        </a>
+                        <div class="header-social --phone">
+                            <a href="tel: +7831266077">+7 (831) 266-07-07</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -75,7 +93,7 @@
             <div class="img-wrapper">
                 <picture>
                     <source media="(min-width: 1200px)" srcset="./media/img/top-img-desc.jpg">
-                    <img src="./media/img/top-img-desc.jpg" alt="">
+                    <img src="./media/img/top-img-tablet.jpg" alt="">
                 </picture>
             </div>
             <div class="top-section-content flex-block">
@@ -93,8 +111,8 @@
                             data-aos-delay="150">
                             <img src="./media/icons/instagram1.svg" alt="">
                         </a>
-                        <!-- <a href="tel: +79130388692" class="social-link" data-aos="fade-right" data-aos-duration="1000"
-                            data-aos-delay="250">
+                        <!-- <a href="tel: +79130388692" class="social-link mobile-only" data-aos="fade-right"
+                            data-aos-duration="1000" data-aos-delay="250">
                             <img src="./media/icons/phone.svg" alt="">
                         </a> -->
                     </div>
@@ -124,7 +142,7 @@
                                     </div>
                                     <div class="text flex-block">
                                         <span>Полный комплекс<br> от дизайна до комплектации</span>
-                                        <a href="javascript: void(0)" class="link">Все преимущества</a>
+                                        <a href="#our-advantages" class="link btn-animate">Все преимущества</a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide flex-block">
@@ -134,7 +152,7 @@
                                     </div>
                                     <div class="text flex-block">
                                         <span>Ведение проекта<br> под ключ</span>
-                                        <a href="javascript: void(0)" class="link">Все преимущества</a>
+                                        <a href="#our-advantages" class="link btn-animate">Все преимущества</a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide flex-block">
@@ -144,7 +162,7 @@
                                     </div>
                                     <div class="text flex-block">
                                         <span>Материальная<br> ответственность</span>
-                                        <a href="javascript: void(0)" class="link">Все преимущества</a>
+                                        <a href="#our-advantages" class="link btn-animate">Все преимущества</a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide flex-block">
@@ -154,7 +172,7 @@
                                     </div>
                                     <div class="text flex-block">
                                         <span>Финансовый учёт строительства<br> в приложении</span>
-                                        <a href="javascript: void(0)" class="link">Все преимущества</a>
+                                        <a href="#our-advantages" class="link btn-animate">Все преимущества</a>
                                     </div>
                                 </div>
                                 <!--   <div class="swiper-slide">
@@ -185,8 +203,8 @@
                     <div class="w-big flex-block">
                         <div class="title">
                             <div class="img-wrapper">
-                                <span class="relax-circle rellax" data-rellax-speed="3" data-rellax-tablet-speed="0"
-                                    data-rellax-xs-speed="0" data-rellax-percentage="0.5"></span>
+                                <span class="relax-circle rellax" data-rellax-speed="3" data-rellax-tablet-speed="2"
+                                    data-rellax-xs-speed="1" data-rellax-percentage="0.5"></span>
                             </div>
                             <h2 class="heading" data-aos="fade-up" data-aos-duration="1200">"СОЧИРЕМОНТ - это
                                 отличное<br> вложение в ваш комфорт<br>
@@ -378,6 +396,14 @@
                             <img src="./media/icons/request-img.svg" alt="">
                             <span></span>
                         </button>
+                        <div class="form-conf-wrapper default-input-wrapper --checkbox" data-aos="fade-right"
+                            data-aos-duration="1200" data-aos-delay="300">
+                            <input type="checkbox" id="inline-request-conf" name="inline-request-conf"
+                                class="input-checkbox-default">
+                            <label for="inline-request-conf" class="label-checkbox pointer">
+                                Нажимая на кнопку, я принимаю <a href="javascript: void(0)">условия соглашения</a>
+                            </label>
+                        </div>
                     </form>
                     <div class="request-success-wrapper">
                         Спасибо, Ваша заявка отправлена.<br> Мы&#160;свяжемся с&#160;вами в&#160;ближайшее время!
@@ -514,7 +540,7 @@
                 </div>
             </div>
         </section>
-        <section class="grey section-price">
+        <section class="grey section-price" id="our-price">
             <div class="new-container">
                 <div class="heading-wrapper flex-block" data-aos="fade-up" data-aos-duration="1200">
                     <h2 class="heading">стоимость ремонта</h2>
@@ -700,7 +726,7 @@
                     <div class="h1 heading">следите за&#160;нами в&#160;соц. сетях и&#160;на&#160;видеохостингах</div>
                 </div>
                 <div class="view-items-outer flex-block">
-                    <div class="view-items flex-block">
+                    <!-- <div class="view-items flex-block">
                         <div class="view-item flex-block" data-aos="fade-right" data-aos-duration="1200">
                             <span>RuTube</span>
                             <div class="video">
@@ -739,7 +765,7 @@
                                 <span>Ремонт квартир и домов | Сочи</span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -897,6 +923,15 @@
                                     <textarea name="brifing-textarea" id="brifing-textarea"
                                         placeholder="Напишите свои пожелания"></textarea>
                                 </div>
+                                <div class="form-conf-wrapper default-input-wrapper --checkbox" data-aos="fade-right"
+                                    data-aos-duration="1200" data-aos-delay="300">
+                                    <input type="checkbox" id="brifing-conf" name="brifing-conf"
+                                        class="input-checkbox-default">
+                                    <label for="brifing-conf" class="label-checkbox pointer">
+                                        Нажимая на кнопку, я принимаю <a href="javascript: void(0)">условия
+                                            соглашения</a>
+                                    </label>
+                                </div>
                             </div>
                             <div class="btns-wrapper flex-block">
                                 <button type="submit" class="btn btn-yellow pointer" form="brifing-form">Далее</button>
@@ -945,8 +980,8 @@
                             <div class="w-big"><span>Цена, как и срок реализации проекта, зависит от его сложности и
                                     рассчитывается
                                     индивидуально. Для Вашего удобства мы сделали несколько тарифов, которые помогут
-                                    сориентироваться в ценах. Ознакомиться с ними можно <a href="javascript: void(0)"
-                                        class="link">тут</a>.</span> </div>
+                                    сориентироваться в ценах. Ознакомиться с ними можно <a href="#our-price"
+                                        class="link btn-animate">тут</a>.</span> </div>
                         </div>
                     </div>
                     <div class="accordeon-wrapper flex-block" data-aos="fade-up" data-aos-duration="1200">
@@ -1244,6 +1279,14 @@
                             <img src="./media/icons/request-img.svg" alt="">
                             <span></span>
                         </button>
+                        <div class="form-conf-wrapper default-input-wrapper --checkbox" data-aos="fade-right"
+                            data-aos-duration="1200" data-aos-delay="300">
+                            <input type="checkbox" id="modal-request-conf" name="modal-request-conf"
+                                class="input-checkbox-default">
+                            <label for="modal-request-conf" class="label-checkbox pointer">
+                                Нажимая на кнопку, я принимаю <a href="javascript: void(0)">условия соглашения</a>
+                            </label>
+                        </div>
                     </form>
                     <div class="request-success-wrapper">
                         Спасибо, Ваша заявка отправлена.<br> Мы&#160;свяжемся с&#160;вами в&#160;ближайшее время!

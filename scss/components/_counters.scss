@@ -19,5 +19,17 @@
         font-size: .7rem;
         letter-spacing: .02em;
         line-height: 1.1rem;
+
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: .9rem;
+                line-height: 1.3rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 1rem;
+                line-height: 1.4rem;
+            }
+        }
     }
 }

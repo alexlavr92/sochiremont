@@ -65,9 +65,12 @@ jQuery(document).ready(function ($) {
             headerOuter: $('.header-outer'),
             headerHamburger: $('.header-hamburger'),
             windowWidth: document.body.clientWidth,
-            lastScrollTop: 0
+            lastScrollTop: 0,
+            headerMob: $('.header-mob'),
+            topSocials: $('.top-socials')
         },
         init: function () {
+            // console.log($(this.HeaderBurger))
             this.events()
             // this.checkMargin()
             // this.checkAdaptive(this.defaultsOptions.windowWidth)
@@ -81,9 +84,34 @@ jQuery(document).ready(function ($) {
             if (windowWidth < 1200) {
                 if (headerWrapper.hasClass('show'))
                     BlockScroll.open()
+                // console.log('jr')
+                // if ()
+                this.defaultsOptions.topSocials.prependTo('.header-inner')
+                const headerMob = this.defaultsOptions.headerMob
+                if (!this.defaultsOptions.headerMob.find('.header-nav').length) {
+                    const HeaderNav = this.defaultsOptions.headerOuter.find('.header-nav')
+                    HeaderNav.prependTo(headerMob.find('.header-mob-inner'))
+                }
+                if (!this.defaultsOptions.headerMob.find('.link-request').length) {
+                    const HeaderRequest = this.defaultsOptions.headerOuter.find('.link-request')
+                    HeaderRequest.appendTo(headerMob.find('.header-mob-inner'))
+                }
             }
             else {
                 BlockScroll.close()
+                this.defaultsOptions.headerWrapper.removeClass('show')
+                this.defaultsOptions.headerMob.hide()
+                this.defaultsOptions.topSocials.prependTo('.top-section-content .new-container')
+
+                const headerDesc = this.defaultsOptions.headerOuter
+                if (this.defaultsOptions.headerMob.find('.header-nav').length) {
+                    const HeaderNav = this.defaultsOptions.headerMob.find('.header-nav')
+                    HeaderNav.prependTo(headerDesc.find('.header-inner'))
+                }
+                if (this.defaultsOptions.headerMob.find('.link-request').length) {
+                    const HeaderRequest = this.defaultsOptions.headerMob.find('.link-request')
+                    HeaderRequest.insertBefore(headerDesc.find('.header-inner .header-socials'))
+                }
             }
         },
         checkSticky: function (scrollTop, headerOuter) {
@@ -95,17 +123,19 @@ jQuery(document).ready(function ($) {
         },
         events: function () {
             const $thisObj = this,
-                options = $thisObj.defaultsOptions
+                options = this.defaultsOptions
             // console.log(options.windowWidth)
+            this.checkAdaptive(options.windowWidth)
+
             let scrollTop = $(window).scrollTop();
             $thisObj.checkSticky(scrollTop, options.headerOuter)
             $(window).on('scroll', function () {
                 scrollTop = $(window).scrollTop();
-                if (options.windowWidth < 1200) { }
-                else {
-                    if (!$('.jquery-modal').length)
-                        $thisObj.checkSticky(scrollTop, options.headerOuter)
-                }
+                // if (options.windowWidth < 1200) { }
+                // else {
+                if (!$('.jquery-modal').length && !$('header.show').length)
+                    $thisObj.checkSticky(scrollTop, options.headerOuter)
+                // }
             })
             $(window).on('resize', function () {
                 if (options.windowWidth != document.body.clientWidth) {
@@ -113,9 +143,29 @@ jQuery(document).ready(function ($) {
                     options.windowWidth = document.body.clientWidth
                     // console.log(options.windowWidth)
                     // $thisObj.checkMargin()
-                    // $thisObj.checkAdaptive(options.windowWidth)
+                    $thisObj.checkAdaptive(options.windowWidth)
                 }
 
+            })
+
+            options.headerHamburger.on('click', function (e) {
+                e.preventDefault()
+                options.headerMob.slideDown({
+                    start: function () {
+                        options.headerWrapper.addClass('show')
+                        BlockScroll.open()
+                    }
+                })
+            })
+            options.headerMob.find('.header-close').on('click', function (e) {
+                console.log('click')
+                e.preventDefault()
+                options.headerMob.slideUp({
+                    start: function () {
+                        BlockScroll.close()
+                        options.headerWrapper.removeClass('show')
+                    }
+                })
             })
         }
     }
@@ -231,7 +281,11 @@ jQuery(document).ready(function ($) {
                             '<span class="all">' + total + '</span>';
                     }
                 },
-
+                // on: {
+                //     init: function () {
+                //         this.update()
+                //     },
+                // },
                 navigation: {
                     nextEl: NextArrow,
                     prevEl: PrevArrow,
@@ -240,6 +294,15 @@ jQuery(document).ready(function ($) {
                     delay: 5000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
+                },
+                breakpoints: {
+                    1199: {
+                        spaceBetween: 40,
+                    },
+                    767: {
+                        spaceBetween: 15,
+                        // autoHeight: true,
+                    },
                 },
             })
         }
@@ -393,6 +456,14 @@ jQuery(document).ready(function ($) {
                         }
                     }
                 })
+
+                const FormConfInput = $this.find('.input-checkbox-default')
+                if (FormConfInput.prop('checked') == false) {
+                    const ItemInputWrapper = FormConfInput.closest('.default-input-wrapper')
+                    ItemInputWrapper.addClass('invalid')
+                    InvalidCount += 1
+                }
+
                 if (InvalidCount == 0) {
                     const formData = new FormData()
                     $.each(AllRequiredInputs, function () {
@@ -415,11 +486,17 @@ jQuery(document).ready(function ($) {
                         $thisFormHeight = $this.innerHeight()
                     RequestSuccess.fadeIn({
                         start: function () {
+                            if (docWidth < 1200)
+                                window.scrollTo(0, ($this.closest('.inline-request').offset().top - $('.header-outer').innerHeight()))
                             $this.hide().remove()
                             $(this).css({
                                 'height': $thisFormHeight + 'px',
                             })
                         },
+                        /*   complete: function () {
+                              console.log($this.offset().top)
+  
+                          } */
                     })
                 }
                 // e.preventDefault()
@@ -428,7 +505,7 @@ jQuery(document).ready(function ($) {
         },
         events: function (forms) {
             // Функционал изменения input
-            forms.on('input change', '.input-default', function (e) {
+            forms.on('input change', '.input-default, input[type="checkbox"]', function (e) {
                 var $this = $(this),
                     $thisInputWrapper = $this.closest('.default-input-wrapper')
                 $thisInputWrapper.find('.invalid-text').remove()
@@ -721,6 +798,14 @@ jQuery(document).ready(function ($) {
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true,
                     },
+                    breakpoints: {
+                        1199: {
+                            spaceBetween: 30,
+                        },
+                        1199: {
+                            spaceBetween: 15,
+                        },
+                    },
                 })
             }
         }
@@ -974,21 +1059,29 @@ jQuery(document).ready(function ($) {
         // console.log('click')
         let header_offset = 0,
             $thisHash = $(this.hash),
-            $thisHashOffset = $thisHash.offset().top,
-            $duration = 1000
+            $thisHashOffset,
+            $duration = 1000,
+            BodyScroll
         // console.log($thisHash, $thisHashOffset)
         if (docWidth > 1200) {
             header_offset = $('.header-outer').innerHeight();
             // console.log(header_offset)
         } else {
-            $('header.sticky').length || $(window).scrollTop()
-                ? header_offset = $('.header-outer').innerHeight()
-                : header_offset = 0;
+            if ($('header.show').length) {
+                BodyScroll = parseInt($('body').attr('data-body-scroll-fix'))
+                $('.header-mob .header-close').trigger('click')
+            }
+
+            header_offset = $('.header-outer').innerHeight();
 
         }
         // console.log(header_offset)
+        $thisHashOffset = $thisHash.offset().top
         let $scrollTop = $thisHashOffset - header_offset
-        // console.log($scrollTop)
+        if (BodyScroll != 0 && BodyScroll != undefined) {
+            $scrollTop = $scrollTop + BodyScroll
+        }
+        console.log($scrollTop)
 
         $("html, body")
             .stop()
@@ -999,19 +1092,6 @@ jQuery(document).ready(function ($) {
                 {
                     duration: $duration, // продолжительность анимации
                     easing: "linear", // скорость анимации
-                    complete: function () { // callback
-                        if (docWidth >= 1200) {
-                            const ScrollHeight = ($thisHash.offset().top - $('header').innerHeight()) - $scrollTop
-                            // console.log(ScrollHeight)
-                            if (ScrollHeight > 1) {
-                                const NewDuration = ScrollHeight * $duration / $(window).scrollTop()
-                                // console.log(ScrollHeight, NewDuration, $(window).scrollTop(), $thisHash.offset().top)
-                                $('html, body').stop().animate({
-                                    scrollTop: $thisHash.offset().top - $('header').innerHeight()
-                                }, NewDuration)
-                            }
-                        }
-                    },
                     queue: false // не ставим в очередь
                 }
             );
@@ -1133,6 +1213,8 @@ jQuery(document).ready(function ($) {
             options.FormElem.find('.brifing-form-step.active').removeClass('active')
             options.FormElem.find('.brifing-form-step:nth-child(' + this.defaultStep + ')').addClass('active').hide().fadeIn()
 
+            window.scrollTo(0, (options.BrifingWrapper.offset().top - $('.header-outer').innerHeight()))
+
             if (this.defaultStep != 1) {
                 const btnBack = '<a href="javascript: void(0)" class="btn btn-contur">Назад</a>'
                 const FormBtnWrapper = options.FormElem.find('.btns-wrapper')
@@ -1206,6 +1288,14 @@ jQuery(document).ready(function ($) {
                     EditInputWrapper(SelectTypeProject, 'Выберите тип помещения')
                     InvalidCount += 1
                 }
+                if ($obj.defaultStep == $obj.allStep) {
+                    const FormConfInput = $this.find('.input-checkbox-default')
+                    if (FormConfInput.prop('checked') == false) {
+                        const ItemInputWrapper = FormConfInput.closest('.default-input-wrapper')
+                        ItemInputWrapper.addClass('invalid')
+                        InvalidCount += 1
+                    }
+                }
                 if (InvalidCount == 0) {
                     if ($obj.defaultStep != $obj.allStep) {
                         $obj.stepSwitcher('next')
@@ -1259,11 +1349,24 @@ jQuery(document).ready(function ($) {
                         RequestSuccess.fadeIn({
                             start: function () {
                                 $this.hide().remove()
-                                $(this).css({
-                                    'height': $thisFormHeight + 'px',
-                                })
-
+                                if (docWidth >= 1200) {
+                                    $(this).css({
+                                        'height': $thisFormHeight + 'px',
+                                    })
+                                }
+                                else {
+                                    $(this).css({
+                                        'height': '',
+                                    })
+                                    AOS.refresh()
+                                }
                             },
+                            complete: function () {
+                                if (docWidth < 1200) {
+                                    options.BrifingWrapper.addClass('form-send')
+                                }
+                                window.scrollTo(0, (options.BrifingWrapper.offset().top - $('.header-outer').innerHeight()))
+                            }
                         })
                     }
 
@@ -1281,7 +1384,7 @@ jQuery(document).ready(function ($) {
             // Функционал изменения input
             const $obj = this,
                 objectsOptions = this.defaultsOptions.BrifingOptions
-            form.on('input change', '.input-default, select, textarea', function (e) {
+            form.on('input change', '.input-default, select, textarea, input[type="checkbox"]', function (e) {
                 var $this = $(this),
                     $thisInputWrapper = $this.closest('.default-input-wrapper')
                 $thisInputWrapper.find('.invalid-text').remove()
@@ -1361,12 +1464,17 @@ const iframe = reviewsIframe[0],
 
 
 if (iframeDoc.readyState == 'complete') {
+    let paddingRight =
+        docWidth >= 1200
+            ? 20
+            : 10
+    let PaddingBigWidget = docWidth >= 1200 ? '0 15' : '0 10'
     // iframeDoc.body.style.backgroundColor = 'green';
     const iframeHead = reviewsIframe.contents().find("head"),
         iframeCSS =
             '<style>' +
-            '.bigWidget{ padding: 0 15px;}' +
-            '.bigWidget__reviewContainer{overflow: auto; padding-right: 20px;}' +
+            '.bigWidget{ padding: ' + PaddingBigWidget + 'px;}' +
+            '.bigWidget__reviewContainer{overflow: auto; padding-right: ' + paddingRight + 'px;}' +
             '.bigWidget:before{content: none;}' +
             '</style>';
     $(iframeHead).append(iframeCSS);

@@ -6,6 +6,20 @@
     position: relative;
     z-index: 0;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            margin: 70px 0;
+            padding: 90px 0;
+        }
+
+        @media (max-width: 767px) {
+            margin: 50px 0;
+            padding: 70px 0;
+            background-image: none !important;
+            background-color: $color-bg-grey;
+        }
+    }
+
     &:before {
         content: '';
         position: absolute;
@@ -29,6 +43,25 @@
             top: -10px;
             width: 38%;
         }
+
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: 2.1rem;
+                line-height: 2.5rem;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 1.4rem;
+                line-height: 1.9rem;
+            }
+        }
+    }
+
+    @media screen {
+        @media (max-width: 1199px) {
+            // background: $color-bg-grey;
+            // background-image: none !important;
+        }
     }
 }
 
@@ -39,6 +72,20 @@
     position: relative;
     z-index: 0;
     width: 100%;
+
+    @media screen {
+        @media (max-width: 1199px) {
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 30px;
+            @include flex-column;
+            gap: 30px;
+        }
+    }
 
     &:before {
         // content: '';
@@ -57,13 +104,23 @@
 
 .view-item {
     @include flex-column;
-    width: calc(33.3% - 40px);
+    width: calc(33.3% - 26.6px);
     // gap: 5px;
     letter-spacing: .02em;
     font-size: .8rem;
     line-height: 1.2rem;
     // color: $color-text-white;
     gap: 10px;
+
+    @media screen {
+        @media (max-width: 1199px) {
+            width: calc(50% - 15px);
+        }
+
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
 
 
     .video {
@@ -75,6 +132,16 @@
         border-radius: 10px;
         overflow: hidden;
 
+        @media screen {
+            @media (max-width: 1199px) {
+                height: 25vw;
+            }
+
+            @media (max-width: 767px) {
+                height: 57vw;
+            }
+        }
+
         iframe {
             border-radius: 10px;
             overflow: hidden;
@@ -83,7 +150,7 @@
 
     >span:first-child {
         text-transform: uppercase;
-        color: $color-text-second;
+        color: $color-text-white;
 
     }
 

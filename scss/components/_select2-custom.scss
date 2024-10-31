@@ -6,10 +6,23 @@
     padding: 0 25px;
     transition: border-color .4s ease;
 
+    @media screen {
+        @media (max-width: 767px) {
+            font-size: 1.1rem;
+        }
+    }
+
     .select2-selection--single {
         height: 52px;
         line-height: 52px;
         // color: #B1B1B1;
+
+        @media screen {
+            @media (min-width: 2100px) {
+                height: 70px;
+                line-height: 70px;
+            }
+        }
     }
 
     .select2-selection--single .select2-selection__rendered {
@@ -80,6 +93,10 @@
         padding: 10px 25px;
         font-size: .8rem;
         transition: $transition;
+
+        @media screen and (max-width: 767px) {
+            font-size: 1.1rem;
+        }
 
         &[aria-selected="true"] {
             background-color: #F2EFE5;

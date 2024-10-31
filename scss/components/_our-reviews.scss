@@ -12,7 +12,24 @@
 .our-reviews-items {
     margin-top: 70px;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            margin-top: 50px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 30px;
+        }
+    }
+
     .btn-wrapper {
         margin-top: 50px;
+
+        @media screen and (max-width: 767px) {
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
     }
 }

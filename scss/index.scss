@@ -36,9 +36,37 @@ Theme Version:	1.0
     height: 100vh;
     position: relative;
 
-    @media screen and (max-height: 900px) {
-        height: auto;
-        min-height: 900px;
+    @media screen {
+        @media (max-height: 900px) and (min-width: 1200px) {
+            height: auto;
+            min-height: 900px;
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) and (max-height: 900px) {
+            // height: auto;
+
+            min-height: auto;
+            height: 130vw !important;
+        }
+
+        @media (max-width: 767px) {
+            height: 135vw;
+        }
+
+        @media (max-width: 425px) {
+            height: 190vw;
+
+        }
+
+        @media (max-width: 375px) {
+            height: 199vw;
+
+        }
+
+        @media (max-width: 350px) {
+            height: 216vw;
+
+        }
     }
 
     // overflow: hidden;
@@ -89,6 +117,23 @@ Theme Version:	1.0
     height: 100%;
     align-items: center;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            align-items: flex-start;
+            padding-top: 33vw;
+            height: auto;
+            position: relative;
+        }
+
+        @media (max-width: 767px) {
+            padding-top: 30vw;
+        }
+
+        @media (max-width: 425px) {
+            padding-top: 49vw;
+        }
+    }
+
     .new-container {
         position: relative;
     }
@@ -136,6 +181,12 @@ Theme Version:	1.0
         clip-path: polygon(0% 10%, 0% 10%, 0% 100%, 0% 100%);
         opacity: 0;
         animation: titleAnimation 1s linear .3s forwards;
+
+        @media screen {
+            @media (max-width: 1199px) {
+                padding-right: 0;
+            }
+        }
     }
 
     .heading {
@@ -157,8 +208,20 @@ Theme Version:	1.0
         max-width: 65%;
         line-height: 140%;
         letter-spacing: .02em;
+
         // display: inline;
         // background-color: $color-text-second;
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: 1.1rem;
+                max-width: none;
+                width: 100%;
+            }
+
+            @media (max-width: 767px) {
+                font-size: 1rem;
+            }
+        }
     }
 }
 
@@ -169,6 +232,18 @@ Theme Version:	1.0
     width: 100%;
     margin-top: -200px;
     z-index: 1;
+
+    @media screen {
+        @media (max-width: 1199px) {
+            position: relative;
+            margin-top: 25vw;
+            top: auto;
+        }
+
+        // @media (max-width: 767px) {
+        //     margin-top: 20vw;
+        // }
+    }
 
 }
 
@@ -183,6 +258,12 @@ Theme Version:	1.0
     padding: 20px;
     width: calc(100% + 40px);
 
+    @media screen and (max-width: 767px) {
+        margin: -15px;
+        padding: 15px;
+        width: calc(100% + 30px);
+    }
+
     // overflow: hidden;
     .swiper-slide {
         border-radius: 20px;
@@ -192,6 +273,13 @@ Theme Version:	1.0
 
         >* {
             flex: 1;
+
+            @media screen {
+                @media (max-width: 1199px) {
+                    flex: none;
+                    width: 100%;
+                }
+            }
         }
 
         .img-block {
@@ -202,10 +290,29 @@ Theme Version:	1.0
             box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.15);
             border: none;
 
+            @media screen {
+                @media (max-width: 1199px) {
+                    height: 45vw;
+                }
+
+                @media (max-width: 767px) {
+                    height: 50vw;
+                    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+                }
+            }
+
 
             img {
                 display: block;
                 width: 100%;
+
+                @media screen {
+                    @media (max-width: 1199px) {
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
             }
         }
 
@@ -218,6 +325,24 @@ Theme Version:	1.0
             font-weight: $font-light;
             letter-spacing: 0.02em;
             font-size: 1rem;
+
+            @media screen {
+                @media (max-width: 1199px) {
+                    order: -1;
+                    width: 100%;
+                }
+
+                @media (max-width: 767px) {
+                    gap: 20px
+                }
+            }
+        }
+
+        @media screen {
+            @media (max-width: 1199px) {
+                @include flex-column;
+                gap: 8vw;
+            }
         }
     }
 }

@@ -4,6 +4,17 @@ footer {
     background: $color-bg-dark;
     width: 100%;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            padding: 90px 0;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 50px;
+            padding: 70px 0;
+        }
+    }
+
     .w-big {
         margin-left: auto;
 
@@ -13,6 +24,18 @@ footer {
                 gap: 30px;
                 align-items: flex-end;
             }
+
+            @media (max-width: 1199px) {
+                flex: 1;
+                min-width: 0;
+                align-items: flex-start;
+                gap: 0;
+                justify-content: flex-start;
+            }
+
+            @media (max-width: 767px) {
+                align-items: center;
+            }
         }
     }
 }
@@ -21,6 +44,19 @@ footer {
     width: 100%;
     align-items: center;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            gap: 100px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 767px) {
+            @include flex-column;
+            gap: 50px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+    }
 }
 
 .footer-logo {
@@ -40,6 +76,19 @@ footer {
     font-size: .7rem;
     align-items: center;
     letter-spacing: .01em;
+
+    @media screen {
+        @media (max-width: 1199px) {
+            @include flex-column;
+            gap: 40px;
+            font-size: .9rem;
+        }
+
+        @media (max-width: 767px) {
+            align-items: center;
+            gap: 30px;
+        }
+    }
 
     .footer-nav-link {
 
@@ -83,6 +132,17 @@ footer {
         &:hover:before,
         &:active:before {
             opacity: 1;
+        }
+    }
+
+    @media screen {
+        @media (max-width: 1199px) {
+            margin-left: 0;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 50px;
         }
     }
 }

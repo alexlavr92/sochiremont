@@ -1,5 +1,17 @@
 .section-price+.process-work {
     margin-top: 90px;
+
+    @media screen {
+        @media (max-width: 1199px) {
+            margin-top: 70px;
+
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 50px;
+
+        }
+    }
 }
 
 .process-work {
@@ -17,6 +29,15 @@
     @include flex-column;
     margin-top: 70px;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            margin-top: 50px;
+        }
+
+        @media (max-width: 767px) {
+            margin-top: 30px;
+        }
+    }
 }
 
 $color-process: #645F5B;
@@ -28,21 +49,53 @@ $color-process: #645F5B;
     border-bottom: 1px solid rgba($color-process, .7);
     color: $color-process;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            @include flex-block;
+            gap: 50px;
+            align-items: center;
+        }
+
+        @media (max-width: 767px) {
+            padding: 20px 0;
+            align-items: flex-start;
+            gap: 20px;
+        }
+    }
+
 
     &:first-child {
         border-top: 1px solid rgba($color-process, .7);
     }
 
     .number {
-        flex: 1;
+        // flex: 1;
         min-width: 0;
         font-family: $font-title;
         font-size: 1.8rem;
+
+        @media screen {
+            @media(max-width: 1199px) {
+                min-width: 50px;
+            }
+
+            @media(max-width: 767px) {
+                min-width: 10vw;
+                font-size: 1.2rem;
+            }
+        }
     }
 
     .w-big {
         @include flex-column;
         gap: 10px;
+
+        @media screen {
+            @media (max-width: 1199px) {
+                flex: 1;
+                min-width: 0;
+            }
+        }
     }
 
     .title {
@@ -50,10 +103,20 @@ $color-process: #645F5B;
         font-size: 25px;
         text-transform: uppercase;
         letter-spacing: .02em;
+
+        @media screen and (max-width: 767px) {
+            font-size: 1.2rem;
+        }
     }
 
     .text {
         font-size: .8rem;
         letter-spacing: .01em;
+
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: 1rem;
+            }
+        }
     }
 }

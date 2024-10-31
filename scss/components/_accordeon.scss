@@ -31,6 +31,18 @@
         position: relative;
         transition: $transition;
 
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: 1.3rem;
+            }
+
+            @media (max-width: 767px) {
+                padding: 20px 0;
+                padding-top: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
 
 
         >span:first-child {
@@ -40,7 +52,15 @@
             font-family: $font-title;
             transform: translateY(-50%);
             font-size: 1.8rem;
+            display: block;
             letter-spacing: 0.02em;
+
+            @media screen and (max-width: 767px) {
+                font-size: 1.3rem;
+                min-width: 30px;
+                top: 40px;
+                transform: none;
+            }
         }
 
         >.plus {
@@ -52,6 +72,14 @@
             transform: translateY(-50%);
             transition: $transition;
             opacity: .7;
+
+            @media screen and (max-width: 767px) {
+                top: 10px;
+                right: 0;
+                transform: none;
+                width: 20px;
+                height: 20px;
+            }
 
 
             &:after,
@@ -83,9 +111,16 @@
         >.w-big {
             padding-right: 50px;
 
+            @media screen {
+                @media (max-width: 767px) {
+                    padding-right: 0;
+                }
+            }
+
             >span {
                 display: block;
                 max-width: 70%;
+
             }
         }
 
@@ -106,6 +141,10 @@
     &.open .plus {
         transform: translateY(-50%) rotate(45deg);
 
+        @media screen and (max-width: 767px) {
+            top: 20px;
+        }
+
         &:before,
         &:after {
             background-color: $color-text-second;
@@ -122,6 +161,20 @@
         letter-spacing: .02em;
         display: none;
 
+        @media screen {
+            @media (max-width: 1199px) {
+                font-size: .9rem;
+                line-height: 1.3rem;
+            }
+
+            @media (max-width: 767px) {
+                .w-big {
+                    max-width: none;
+                    width: 100%;
+                }
+            }
+        }
+
         .link:hover,
         .link:active {
             color: $color-text-second;
@@ -132,5 +185,16 @@
     .w-big {
         margin-left: auto;
 
+        @media screen {
+            @media (max-width: 1199px) {
+                max-width: calc(92% - 40px);
+                margin-left: auto;
+            }
+
+            @media (max-width: 767px) {
+                max-width: calc(100% - 50px);
+                // margin-left: auto;
+            }
+        }
     }
 }

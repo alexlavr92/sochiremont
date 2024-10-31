@@ -35,14 +35,41 @@
     .swiper-slide {
         gap: 4vw;
 
+        @media screen {
+            @media (max-width: 1199px) {
+                @include flex-column;
+                flex-wrap: nowrap;
+                padding-top: 50px;
+                gap: 50px;
+            }
+
+            @media (max-width: 767px) {
+                gap: 30px;
+                padding-top: 30px;
+            }
+        }
+
         >* {
             flex: 1;
+
+            @media screen {
+                @media (max-width: 1199px) {
+                    flex: none;
+                    width: 100%;
+                }
+            }
         }
 
         .img-block {
             border-radius: 20px;
             overflow: hidden;
             position: relative;
+
+            @media screen {
+                @media (max-width: 1199px) {
+                    min-height: 65vw;
+                }
+            }
         }
     }
 
@@ -50,6 +77,11 @@
         @include flex-column;
         justify-content: center;
         gap: 30px;
+
+        @media screen and (max-width: 767px) {
+            gap: 20px;
+        }
+
     }
 
     .descript-item {
@@ -62,6 +94,10 @@
             position: relative;
             padding-left: 15px;
 
+            @media screen and (max-width: 767px) {
+                font-size: 1.1rem;
+            }
+
             &:before {
                 content: '';
                 position: absolute;
@@ -71,6 +107,10 @@
                 background-color: $color-text-second;
                 left: 0;
                 top: 11px;
+
+                @media screen and (max-width: 767px) {
+                    top: 7px;
+                }
             }
         }
 
@@ -80,6 +120,27 @@
             padding-left: 15px;
             letter-spacing: .02em;
             color: rgba($color-text-main, .6);
+
+            @media screen and (max-width: 767px) {
+                font-size: .9rem;
+                line-height: 1.2rem;
+            }
+        }
+    }
+}
+
+@media screen {
+    @media (max-width: 1199px) {
+        .our-advantages-slider {
+            margin: 0 -40px;
+            padding: 0 40px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .our-advantages-slider {
+            margin: 0 -15px;
+            padding: 0 15px;
         }
     }
 }

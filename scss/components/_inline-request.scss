@@ -2,6 +2,18 @@
     margin: 90px 0;
     padding: 120px 0 185px;
 
+    @media screen {
+        @media (max-width: 1199px) {
+            margin: 70px 0;
+            padding: 100px 0;
+        }
+
+        @media (max-width: 767px) {
+            margin: 50px 0;
+            padding: 80px 0;
+        }
+    }
+
     .w-big {
         margin-left: auto;
 
@@ -28,6 +40,12 @@
         line-height: 150%;
         display: none;
     }
+
+    @media screen {
+        @media (max-width: 1199px) {
+            margin-top: 50px;
+        }
+    }
 }
 
 .inline-form {
@@ -40,6 +58,11 @@
         }
 
         @media (max-width: 1399px) {
+            gap: 30px;
+        }
+
+        @media (max-width: 1199px) {
+            @include flex-column;
             gap: 30px;
         }
     }
@@ -56,6 +79,26 @@
 
             @media (max-width: 1500px) {
                 width: 22vw;
+            }
+
+            @media (max-width: 1199px) {
+                width: 100%;
+                max-width: none;
+            }
+        }
+    }
+
+    .form-conf-wrapper {
+        width: 100%;
+        max-width: none;
+
+        a {
+            color: $color-bg-dark;
+            border-bottom: 1px solid;
+
+            &:hover,
+            &:active {
+                border-color: transparent;
             }
         }
     }
