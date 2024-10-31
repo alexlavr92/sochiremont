@@ -1349,17 +1349,17 @@ jQuery(document).ready(function ($) {
                         RequestSuccess.fadeIn({
                             start: function () {
                                 $this.hide().remove()
-                                if (docWidth >= 1200) {
-                                    $(this).css({
-                                        'height': $thisFormHeight + 'px',
-                                    })
-                                }
-                                else {
-                                    $(this).css({
-                                        'height': '',
-                                    })
-                                    AOS.refresh()
-                                }
+                                // if (docWidth >= 1200) {
+                                $(this).css({
+                                    'height': $thisFormHeight + 'px',
+                                })
+                                // }
+                                // else {
+                                //     $(this).css({
+                                //         'height': '',
+                                //     })
+                                //     AOS.refresh()
+                                // }
                             },
                             complete: function () {
                                 if (docWidth < 1200) {
