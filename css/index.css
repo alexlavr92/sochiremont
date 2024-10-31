@@ -1091,7 +1091,7 @@ input[type=checkbox] {
 @media screen and (max-width: 767px) {
   .inline-form .btn-submit span:after {
     top: 26px;
-    right: 12px;
+    right: 11px;
   }
 }
 .inline-form .btn-submit:hover span, .inline-form .btn-submit:active span {
